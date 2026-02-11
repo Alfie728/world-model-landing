@@ -38,7 +38,7 @@ export function AccentCard({ vector, index }: AccentCardProps) {
 	return (
 		<motion.div
 			ref={ref}
-			className={`flex flex-col p-7 md:p-8 rounded-2xl border ${styles.border} ${styles.glow} bg-surface-raised/50 backdrop-blur-sm transition-all duration-500 cursor-pointer flex-1 min-w-0`}
+			className={`flex flex-col p-7 md:p-8 rounded-2xl border ${styles.border} ${styles.glow} bg-surface-raised/50 backdrop-blur-sm transition-all duration-500 cursor-pointer flex-1 min-w-0 overflow-hidden`}
 			initial={{ opacity: 0, y: 40 }}
 			animate={isInView ? { opacity: 1, y: 0 } : {}}
 			transition={{
@@ -53,32 +53,34 @@ export function AccentCard({ vector, index }: AccentCardProps) {
 				{vector.number}
 			</span>
 
-			<h3 className="font-heading text-2xl md:text-3xl font-bold mt-4 text-text-primary">
+			{/* h3: 28px/34px/500 from Offground */}
+			<h3 className="font-heading mt-4 text-text-primary">
 				{vector.title}
 			</h3>
 
-			<p className="font-mono text-xs tracking-wide text-text-muted mt-2 uppercase">
+			<h6 className="font-mono tracking-wide text-text-muted mt-2 uppercase">
 				{vector.tagline}
-			</p>
+			</h6>
 
-			<p className="font-body text-base text-text-secondary leading-relaxed mt-6">
+			{/* h5: 18px/24px/300 from Offground */}
+			<h5 className="text-text-secondary mt-5">
 				{vector.description}
-			</p>
+			</h5>
 
-			<ul className="mt-6 space-y-3">
+			<ul className="mt-4 space-y-1.5">
 				{vector.bullets.map((bullet) => (
 					<li key={bullet} className="flex items-start gap-3">
 						<span
 							className={`w-1.5 h-1.5 rounded-full ${styles.dot} mt-2 flex-shrink-0`}
 						/>
-						<span className="font-body text-sm text-text-secondary leading-relaxed">
+						<span className="text-text-secondary" style={{ fontSize: "16px", lineHeight: "26px", fontWeight: 400 }}>
 							{bullet}
 						</span>
 					</li>
 				))}
 			</ul>
 
-			<p className="font-body text-sm text-text-muted leading-relaxed mt-6 italic">
+			<p className="text-text-muted mt-4 italic" style={{ fontSize: "14px", lineHeight: "20px", fontWeight: 300 }}>
 				{vector.closing}
 			</p>
 		</motion.div>

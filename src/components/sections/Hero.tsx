@@ -53,8 +53,8 @@ export function Hero() {
 					</span>
 				</motion.div>
 
-				{/* Heading — word-by-word reveal */}
-				<h1 className="font-heading text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[0.95]">
+				{/* Heading — h1 picks up 95px/109px/300 from globals.css */}
+				<h1 className="font-heading">
 					{words.map((word, i) => (
 						<motion.span
 							key={`${word}-${i}`}
@@ -76,9 +76,9 @@ export function Hero() {
 					))}
 				</h1>
 
-				{/* Subtitle */}
-				<motion.p
-					className="mt-8 text-text-secondary text-lg md:text-xl max-w-2xl mx-auto font-body leading-relaxed"
+				{/* Subtitle — h4 picks up 22px/30px/300 from globals.css */}
+				<motion.h4
+					className="mt-8 text-text-secondary font-body max-w-2xl mx-auto"
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{
@@ -88,7 +88,7 @@ export function Hero() {
 					}}
 				>
 					{content.hero.subtitle}
-				</motion.p>
+				</motion.h4>
 			</div>
 
 			{/* Scroll indicator */}

@@ -14,7 +14,7 @@ export function ResearchLab() {
 
 	return (
 		<div className="min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex items-center justify-center max-md:w-full max-md:relative max-md:min-h-screen max-md:py-24 max-md:px-6">
-			{/* Heading — top left */}
+			{/* Heading — top left (original position) */}
 			<div
 				ref={lineRef}
 				className="absolute top-[28vh] left-[8vw] w-fit max-w-[40vw] z-[2] max-md:static max-md:max-w-none"
@@ -24,9 +24,8 @@ export function ResearchLab() {
 				</span>
 
 				<SVGMaskReveal className="mt-4">
-					<h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-						{data.heading}
-					</h2>
+					{/* h2: 40px/46px/300 from Offground CSS */}
+					<h2>{data.heading}</h2>
 				</SVGMaskReveal>
 
 				<motion.div
@@ -42,18 +41,19 @@ export function ResearchLab() {
 				/>
 
 				<FadeInView className="mt-6">
-					<p className="font-body text-lg text-text-secondary leading-relaxed">
+					{/* h3: 28px/34px/500 */}
+					<h3 className="text-text-secondary" style={{ fontWeight: 300 }}>
 						{data.subtitle}
-					</p>
+					</h3>
 				</FadeInView>
 			</div>
 
-			{/* Bullets — bottom right */}
+			{/* Bullets — bottom right (original position) */}
 			<div className="absolute bottom-[12vh] right-[10vw] w-fit max-w-[30vw] z-[2] max-md:static max-md:max-w-none max-md:mt-8">
 				<FadeInView>
-					<p className="font-body text-base text-text-secondary leading-relaxed">
+					<h5 className="text-text-secondary">
 						{data.paragraphs[0]}
-					</p>
+					</h5>
 				</FadeInView>
 
 				<div className="mt-5 space-y-2.5">
@@ -61,18 +61,19 @@ export function ResearchLab() {
 						<FadeInView key={bullet} delay={0.1 + i * 0.06}>
 							<div className="flex items-start gap-3">
 								<span className="w-1.5 h-1.5 rounded-full bg-accent-indigo mt-2 flex-shrink-0" />
-								<span className="font-body text-base text-text-secondary leading-relaxed">
+								{/* h5: 18px/24px/300 */}
+								<h5 className="text-text-secondary">
 									{bullet}
-								</span>
+								</h5>
 							</div>
 						</FadeInView>
 					))}
 				</div>
 
 				<FadeInView delay={0.4} className="mt-6">
-					<p className="font-mono text-sm tracking-wide text-text-muted">
+					<h6 className="text-text-muted">
 						{data.closing}
-					</p>
+					</h6>
 				</FadeInView>
 			</div>
 		</div>

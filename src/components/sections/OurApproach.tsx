@@ -14,16 +14,15 @@ export function OurApproach() {
 
 	return (
 		<div className="min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex items-center justify-center max-md:w-full max-md:relative max-md:min-h-screen max-md:py-24 max-md:px-6">
-			{/* Centered content block */}
+			{/* Centered content block (original position) */}
 			<div className="absolute top-[20vh] left-[50%] -translate-x-1/2 w-fit max-w-[40vw] z-[2] max-md:static max-md:translate-x-0 max-md:max-w-none">
 				<span className="font-mono text-sm tracking-widest text-text-muted">
 					{data.number}
 				</span>
 
 				<SVGMaskReveal className="mt-4">
-					<h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-						{data.heading}
-					</h2>
+					{/* h1: 95px/109px/300 — last slide uses h1 like Offground slide-4 */}
+					<h1>{data.heading}</h1>
 				</SVGMaskReveal>
 
 				{/* Animated gradient bar */}
@@ -45,15 +44,16 @@ export function OurApproach() {
 				</div>
 
 				<FadeInView>
-					<p className="font-body text-lg text-text-secondary leading-relaxed">
+					{/* h3: 28px/34px/500 */}
+					<h3 className="text-text-secondary" style={{ fontWeight: 300 }}>
 						{data.subtitle}
-					</p>
+					</h3>
 				</FadeInView>
 
 				<FadeInView delay={0.1}>
-					<p className="font-body text-base text-text-secondary leading-relaxed mt-5">
+					<h5 className="text-text-secondary mt-5">
 						{data.paragraphs[0]}
-					</p>
+					</h5>
 				</FadeInView>
 
 				<div className="mt-5 space-y-2.5">
@@ -61,22 +61,23 @@ export function OurApproach() {
 						<FadeInView key={bullet} delay={0.2 + i * 0.06}>
 							<div className="flex items-start gap-3">
 								<span className="w-1.5 h-1.5 rounded-full bg-accent-indigo mt-2 flex-shrink-0" />
-								<span className="font-body text-base text-text-secondary leading-relaxed">
+								<h5 className="text-text-secondary">
 									{bullet}
-								</span>
+								</h5>
 							</div>
 						</FadeInView>
 					))}
 				</div>
 
 				<FadeInView delay={0.5} className="mt-8">
-					<p className="font-heading text-xl md:text-2xl font-semibold text-text-primary">
+					{/* h3: 28px/34px/500 — closing statement */}
+					<h3 className="font-heading text-text-primary">
 						The goal is not volume alone, but{" "}
 						<span className="text-accent-indigo">
 							useful experience
 						</span>
 						.
-					</p>
+					</h3>
 				</FadeInView>
 			</div>
 		</div>

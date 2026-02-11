@@ -16,13 +16,15 @@ export function Navbar() {
 			<div className="flex items-center gap-8">
 				<a
 					href="#research"
-					className="font-mono text-xs tracking-widest text-text-muted hover:text-text-secondary transition-colors cursor-pointer"
+					className="font-heading text-text-muted hover:text-text-primary transition-colors cursor-pointer border-b border-transparent hover:border-text-primary pb-1"
+					style={{ fontSize: "16px", fontWeight: 300 }}
 				>
 					Research
 				</a>
 				<a
 					href="#contact"
-					className="font-mono text-xs tracking-widest text-text-muted hover:text-text-secondary transition-colors cursor-pointer"
+					className="font-heading text-text-muted hover:text-text-primary transition-colors cursor-pointer border-b border-transparent hover:border-text-primary pb-1"
+					style={{ fontSize: "16px", fontWeight: 300 }}
 				>
 					Contact
 				</a>

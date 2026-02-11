@@ -39,8 +39,66 @@ html {
 
 body {
 	font-family: var(--font-body), Georgia, "Times New Roman", serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 26px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Offground-matched typography scale */
+h1, .h1 {
+	font-family: var(--font-heading);
+	font-size: 95px;
+	letter-spacing: 0.0065em;
+	line-height: 109px;
+	font-weight: 300;
+}
+
+h2, .h2 {
+	font-family: var(--font-heading);
+	font-size: 40px;
+	font-weight: 300;
+	line-height: 46px;
+}
+
+h3, .h3 {
+	font-family: var(--font-heading);
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 34px;
+}
+
+h4, .h4 {
+	font-size: 22px;
+	line-height: 30px;
+	font-weight: 300;
+}
+
+h5, .h5 {
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+}
+
+h6, .h6 {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 700;
+}
+
+blockquote {
+	font-size: 30px;
+	line-height: 42px;
+	font-weight: 400;
+	font-style: italic;
+	font-family: var(--font-heading);
+}
+
+@media only screen and (max-width: 767px) {
+	h1, .h1 { font-size: 40px; line-height: 40px; }
+	h2, .h2 { font-size: 24px; line-height: 32px; }
+	h3, .h3 { font-size: 20px; line-height: 24px; }
 }
 
 ::selection {
