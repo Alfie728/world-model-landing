@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, sourceSerif, geistMono } from "~/lib/fonts";
+import { SmoothScroll } from "~/components/providers/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function RootLayout({
 			<body
 				className={`${spaceGrotesk.variable} ${sourceSerif.variable} ${geistMono.variable} antialiased bg-surface-base text-text-primary`}
 			>
-				{children}
+				<SmoothScroll>{children}</SmoothScroll>
 			</body>
 		</html>
 	);

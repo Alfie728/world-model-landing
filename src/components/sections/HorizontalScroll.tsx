@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "~/lib/hooks/useMediaQuery";
 
@@ -30,14 +30,8 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
     offset: ["start start", "end end"],
   });
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   const x = useTransform(
-    smoothProgress,
+    scrollYProgress,
     [0, 1],
     [
       0,
