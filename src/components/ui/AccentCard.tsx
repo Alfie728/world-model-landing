@@ -38,7 +38,7 @@ export function AccentCard({ vector, index }: AccentCardProps) {
 	return (
 		<motion.div
 			ref={ref}
-			className={`flex flex-col p-7 md:p-8 rounded-2xl border ${styles.border} ${styles.glow} bg-surface-raised/50 backdrop-blur-sm transition-all duration-500 cursor-pointer w-full md:w-[26vw] md:min-w-[340px] flex-shrink-0`}
+			className={`flex flex-col p-7 md:p-8 rounded-2xl border ${styles.border} ${styles.glow} bg-surface-raised/50 backdrop-blur-sm transition-all duration-500 cursor-pointer flex-1 min-w-0`}
 			initial={{ opacity: 0, y: 40 }}
 			animate={isInView ? { opacity: 1, y: 0 } : {}}
 			transition={{

@@ -1,65 +1,52 @@
 "use client";
 
+import { Children, type ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { type ReactNode, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "~/lib/hooks/useMediaQuery";
 
 interface HorizontalScrollProps {
-  children: ReactNode;
+	children: ReactNode;
 }
 
 export function HorizontalScroll({ children }: HorizontalScrollProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [trackWidth, setTrackWidth] = useState(0);
-  const isMobile = useMediaQuery("(max-width: 767px)");
+	const containerRef = useRef<HTMLDivElement>(null);
+	const isMobile = useMediaQuery("(max-width: 1024px)");
+	const slideCount = Children.count(children);
 
-  useEffect(() => {
-    if (!trackRef.current) return;
-    const measure = () => {
-      setTrackWidth(trackRef.current?.scrollWidth ?? 0);
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(trackRef.current);
-    return () => ro.disconnect();
-  }, []);
+	// Match reference: wrapper height = slideCount * 100vh
+	const wrapperHeight = `${slideCount * 100}vh`;
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start start", "end end"],
+	});
 
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [
-      0,
-      -(trackWidth - (typeof window !== "undefined" ? window.innerWidth : 0)),
-    ],
-  );
+	// Translate from 0 to -(slideCount - 1) * 100vw
+	const x = useTransform(
+		scrollYProgress,
+		[0, 1],
+		["0vw", `${-(slideCount - 1) * 100}vw`],
+	);
 
-  if (isMobile) {
-    return <div className="flex flex-col">{children}</div>;
-  }
+	if (isMobile) {
+		return <div className="flex flex-col">{children}</div>;
+	}
 
-  // Scroll distance = track width so 1px vertical scroll ≈ 1px horizontal
-  const scrollHeight = trackWidth;
-
-  return (
-    <div
-      ref={containerRef}
-      style={{ height: scrollHeight > 0 ? scrollHeight : "400vh" }}
-    >
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <motion.div
-          ref={trackRef}
-          style={{ x }}
-          className="flex h-full will-change-transform"
-        >
-          {children}
-        </motion.div>
-      </div>
-    </div>
-  );
+	return (
+		<div className="relative bg-surface-base" ref={containerRef} style={{ height: wrapperHeight }}>
+			{/* Sticky viewport — matches reference .sticky-layer */}
+			<div className="sticky top-0 left-0 h-screen w-full overflow-hidden">
+				{/* Slides wrapper — absolute fill, matches .slides-wrapper */}
+				<div className="absolute inset-0 w-full h-full">
+					{/* Slides container — flex row, translated, matches .slides-container */}
+					<motion.div
+						style={{ x }}
+						className="flex flex-nowrap h-full will-change-transform"
+					>
+						{children}
+					</motion.div>
+				</div>
+			</div>
+		</div>
+	);
 }

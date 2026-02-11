@@ -6,8 +6,9 @@ import { content } from "~/lib/content";
 
 export function ProductVectors() {
 	return (
-		<div className="flex-shrink-0 h-full flex flex-col justify-center pl-[8vw] pr-[10vw] max-md:w-full max-md:min-h-fit max-md:px-8 max-md:py-24">
-			<div className="mb-8">
+		<div className="min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex items-center justify-center max-md:w-full max-md:relative max-md:min-h-fit max-md:py-24 max-md:px-6">
+			{/* Heading — top left */}
+			<div className="absolute top-[12vh] left-[5vw] w-fit z-[2] max-md:static">
 				<span className="font-mono text-sm tracking-widest text-text-muted">
 					04 — 06
 				</span>
@@ -18,7 +19,8 @@ export function ProductVectors() {
 				</SVGMaskReveal>
 			</div>
 
-			<div className="flex flex-col md:flex-row gap-5">
+			{/* Cards — center/bottom area */}
+			<div className="absolute top-[24vh] left-[5vw] right-[5vw] bottom-[6vh] flex flex-col md:flex-row items-stretch gap-5 z-[2] max-md:static max-md:mt-6">
 				{content.productVectors.map((vector, i) => (
 					<AccentCard key={vector.title} vector={vector} index={i} />
 				))}

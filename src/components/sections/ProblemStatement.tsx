@@ -8,22 +8,22 @@ const data = content.problemStatement;
 
 export function ProblemStatement() {
 	return (
-		<div className="flex-shrink-0 h-full flex items-center pl-[10vw] pr-[15vw] max-md:w-full max-md:min-h-screen max-md:px-8 max-md:py-24">
-			<div className="flex gap-20 max-w-[85vw]">
-				{/* Left — number + heading */}
-				<div className="flex-shrink-0 w-[30vw] max-md:w-full">
-					<span className="font-mono text-sm tracking-widest text-text-muted">
-						{data.number}
-					</span>
-					<SVGMaskReveal className="mt-4">
-						<h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05]">
-							{data.heading}
-						</h2>
-					</SVGMaskReveal>
-				</div>
+		<div className="min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex items-center justify-center max-md:w-full max-md:relative max-md:min-h-screen max-md:py-24 max-md:px-6">
+			{/* Text block 1 — top-left area */}
+			<div className="absolute top-[35vh] left-[5vw] w-fit max-w-[30vw] z-[2] max-md:static max-md:max-w-none">
+				<span className="font-mono text-sm tracking-widest text-text-muted">
+					{data.number}
+				</span>
+				<SVGMaskReveal className="mt-4">
+					<h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05]">
+						{data.heading}
+					</h2>
+				</SVGMaskReveal>
+			</div>
 
-				{/* Right — narrative */}
-				<div className="flex flex-col justify-center space-y-5 w-[32vw] max-md:w-full">
+			{/* Text block 2 — center-right area */}
+			<div className="absolute top-[25vh] right-[8vw] w-fit max-w-[32vw] z-[2] max-md:static max-md:max-w-none">
+				<div className="space-y-5">
 					{data.paragraphs.map((p, i) => (
 						<FadeInView key={p.slice(0, 20)} delay={i * 0.08}>
 							<p
