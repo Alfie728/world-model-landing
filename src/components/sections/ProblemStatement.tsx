@@ -8,10 +8,10 @@ const data = content.problemStatement;
 
 export function ProblemStatement() {
 	return (
-		<section className="flex-shrink-0 w-screen h-screen flex items-center max-md:w-full max-md:min-h-screen max-md:py-24">
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 max-w-7xl mx-auto px-8 md:px-16">
+		<div className="flex-shrink-0 h-full flex items-center pl-[10vw] pr-[15vw] max-md:w-full max-md:min-h-screen max-md:px-8 max-md:py-24">
+			<div className="flex gap-20 max-w-[85vw]">
 				{/* Left — number + heading */}
-				<div>
+				<div className="flex-shrink-0 w-[30vw] max-md:w-full">
 					<span className="font-mono text-sm tracking-widest text-text-muted">
 						{data.number}
 					</span>
@@ -23,14 +23,14 @@ export function ProblemStatement() {
 				</div>
 
 				{/* Right — narrative */}
-				<div className="flex flex-col justify-center space-y-6">
+				<div className="flex flex-col justify-center space-y-5 w-[32vw] max-md:w-full">
 					{data.paragraphs.map((p, i) => (
-						<FadeInView key={p.slice(0, 20)} delay={i * 0.1}>
+						<FadeInView key={p.slice(0, 20)} delay={i * 0.08}>
 							<p
-								className={`font-body text-lg leading-relaxed ${
+								className={`font-body leading-relaxed ${
 									p === "It is a data problem."
 										? "text-accent-indigo text-2xl font-semibold font-heading"
-										: "text-text-secondary"
+										: "text-text-secondary text-base"
 								}`}
 							>
 								{p}
@@ -39,6 +39,6 @@ export function ProblemStatement() {
 					))}
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 }

@@ -6,23 +6,23 @@ import { content } from "~/lib/content";
 
 export function ProductVectors() {
 	return (
-		<section className="flex-shrink-0 w-[200vw] h-screen flex flex-col justify-center px-8 md:px-20 max-md:w-full max-md:min-h-fit max-md:py-24">
-			<div className="mb-10">
+		<div className="flex-shrink-0 h-full flex flex-col justify-center pl-[8vw] pr-[10vw] max-md:w-full max-md:min-h-fit max-md:px-8 max-md:py-24">
+			<div className="mb-8">
 				<span className="font-mono text-sm tracking-widest text-text-muted">
 					04 — 06
 				</span>
-				<SVGMaskReveal className="mt-4">
-					<h2 className="font-heading text-3xl md:text-5xl font-bold">
+				<SVGMaskReveal className="mt-3">
+					<h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold">
 						Three Product Vectors
 					</h2>
 				</SVGMaskReveal>
 			</div>
 
-			<div className="flex flex-col md:flex-row gap-6 md:gap-8">
+			<div className="flex flex-col md:flex-row gap-5">
 				{content.productVectors.map((vector, i) => (
 					<AccentCard key={vector.title} vector={vector} index={i} />
 				))}
 			</div>
-		</section>
+		</div>
 	);
 }

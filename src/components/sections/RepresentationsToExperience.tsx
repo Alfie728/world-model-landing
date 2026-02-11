@@ -8,45 +8,47 @@ const data = content.representationsToExperience;
 
 export function RepresentationsToExperience() {
 	return (
-		<section className="flex-shrink-0 w-screen h-screen flex flex-col justify-center px-8 md:px-20 max-md:w-full max-md:min-h-screen max-md:py-24">
-			<span className="font-mono text-sm tracking-widest text-text-muted">
-				{data.number}
-			</span>
+		<div className="flex-shrink-0 h-full flex flex-col justify-center pr-[12vw] pl-[6vw] max-md:w-full max-md:min-h-screen max-md:px-8 max-md:py-24">
+			<div className="w-[50vw] max-md:w-full">
+				<span className="font-mono text-sm tracking-widest text-text-muted">
+					{data.number}
+				</span>
 
-			{/* Pull quote */}
-			<SVGMaskReveal className="mt-6">
-				<blockquote className="font-body italic text-2xl md:text-4xl lg:text-5xl text-text-primary leading-snug max-w-4xl">
-					&ldquo;{data.pullQuote}&rdquo;
-				</blockquote>
-			</SVGMaskReveal>
+				{/* Pull quote */}
+				<SVGMaskReveal className="mt-6">
+					<blockquote className="font-body italic text-2xl md:text-3xl lg:text-[2.75rem] lg:leading-snug text-text-primary max-w-3xl">
+						&ldquo;{data.pullQuote}&rdquo;
+					</blockquote>
+				</SVGMaskReveal>
 
-			{/* Body + bullets */}
-			<div className="mt-12 max-w-3xl">
-				<FadeInView>
-					<p className="font-body text-lg text-text-secondary leading-relaxed">
-						{data.paragraphs[0]}
-					</p>
-				</FadeInView>
+				{/* Body + bullets */}
+				<div className="mt-10 max-w-2xl">
+					<FadeInView>
+						<p className="font-body text-base text-text-secondary leading-relaxed">
+							{data.paragraphs[0]}
+						</p>
+					</FadeInView>
 
-				<ul className="mt-6 space-y-3">
-					{data.bullets.map((bullet, i) => (
-						<FadeInView key={bullet} delay={0.1 + i * 0.08}>
-							<li className="flex items-start gap-3">
-								<span className="w-1.5 h-1.5 rounded-full bg-accent-cyan mt-2.5 flex-shrink-0" />
-								<span className="font-body text-lg text-text-secondary leading-relaxed">
-									{bullet}
-								</span>
-							</li>
-						</FadeInView>
-					))}
-				</ul>
+					<ul className="mt-5 space-y-2.5">
+						{data.bullets.map((bullet, i) => (
+							<FadeInView key={bullet} delay={0.1 + i * 0.06}>
+								<li className="flex items-start gap-3">
+									<span className="w-1.5 h-1.5 rounded-full bg-accent-cyan mt-2 flex-shrink-0" />
+									<span className="font-body text-base text-text-secondary leading-relaxed">
+										{bullet}
+									</span>
+								</li>
+							</FadeInView>
+						))}
+					</ul>
 
-				<FadeInView delay={0.5} className="mt-8">
-					<p className="font-body text-lg text-text-secondary leading-relaxed">
-						{data.closing}
-					</p>
-				</FadeInView>
+					<FadeInView delay={0.4} className="mt-6">
+						<p className="font-body text-base text-text-secondary leading-relaxed">
+							{data.closing}
+						</p>
+					</FadeInView>
+				</div>
 			</div>
-		</section>
+		</div>
 	);
 }
