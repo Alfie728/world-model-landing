@@ -9,6 +9,7 @@ import { WhyThisMatters } from "~/components/sections/WhyThisMatters";
 import { Footer } from "~/components/sections/Footer";
 import { ScrollProgress } from "~/components/ui/ScrollProgress";
 import { Navbar } from "~/components/ui/Navbar";
+import { InfoBar } from "~/components/ui/InfoBar";
 
 export default function Home() {
 	return (
@@ -24,6 +25,10 @@ export default function Home() {
 					<ProductVectors />
 					<OurApproach />
 				</HorizontalScroll>
+				{/* Sticky info bar — becomes header after horizontal scroll */}
+				<div className="sticky top-0 z-40">
+					<InfoBar />
+				</div>
 				<WhyThisMatters />
 			</main>
 			<Footer />
