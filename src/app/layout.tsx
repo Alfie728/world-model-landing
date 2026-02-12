@@ -1,26 +1,33 @@
 import type { Metadata } from "next";
-import { syne, inter, jetbrainsMono, instrumentSerif } from "~/lib/fonts";
 import { SmoothScroll } from "~/components/providers/SmoothScroll";
+import { instrumentSerif, inter, jetbrainsMono, syne } from "~/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "World Model | Planet-Scale Data for the Era of Experience",
-	description:
-		"A frontier AI research lab building world model data, robotics data, and custom hardware for embodied intelligence.",
+  title: "World Model | Planet-Scale Data for the Era of Experience",
+  description:
+    "A frontier AI research lab building world model data, robotics data, and custom hardware for embodied intelligence.",
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en" className="dark">
-			<body
-				className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} antialiased bg-surface-base text-text-primary`}
-			>
-				<SmoothScroll>{children}</SmoothScroll>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en" className="dark">
+      <head>
+        <script
+          crossOrigin="anonymous"
+          src="//unpkg.com/react-scan/dist/auto.global.js"
+        />
+        {/* rest of your scripts go under */}
+      </head>
+      <body
+        className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} antialiased bg-surface-base text-text-primary`}
+      >
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
+    </html>
+  );
 }

@@ -31,6 +31,7 @@ export default function Home() {
             colorFrequency={1}
             noise={0}
             glow={1}
+            suspendWhenOffscreen
           />
         </div>
         <Hero />

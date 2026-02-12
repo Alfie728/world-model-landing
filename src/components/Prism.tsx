@@ -62,7 +62,7 @@ const Prism: React.FC<PrismProps> = ({
     const HOVSTR = Math.max(0, hoverStrength || 1);
     const INERT = Math.max(0, Math.min(1, inertia || 0.12));
 
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const dpr = Math.min(1.5, window.devicePixelRatio || 1);
     const renderer = new Renderer({
       dpr,
       alpha: transparent,
@@ -176,7 +176,7 @@ const Prism: React.FC<PrismProps> = ({
           wob = mat2(c0, c1, c2, c0);
         }
 
-        const int STEPS = 100;
+        const int STEPS = 60;
         for (int i = 0; i < STEPS; i++) {
           p = vec3(f, z);
           p.xz = p.xz * wob;
@@ -186,6 +186,8 @@ const Prism: React.FC<PrismProps> = ({
           d = 0.1 + 0.2 * abs(sdPyramidUpInv(q));
           z -= d;
           o += (sin((p.y + z) * cf + vec4(0.0, 1.0, 2.0, 3.0)) + 1.0) / d;
+          // Early exit: tanh(v^2/1e5) ≈ 1 once v > ~450, more steps are wasted
+          if (o.r > 500.0 && o.g > 500.0 && o.b > 500.0) break;
         }
 
         o = tanh4(o * o * (uGlow * uBloom) / 1e5);
@@ -240,14 +242,21 @@ const Prism: React.FC<PrismProps> = ({
     });
     const mesh = new Mesh(gl, { geometry, program });
 
+    // Render at reduced resolution — the diffuse glow hides the lower res.
+    // CSS keeps canvas at 100%, only the drawing buffer is smaller.
+    const RENDER_SCALE = 0.55;
+
     const resize = () => {
       const w = container.clientWidth || 1;
       const h = container.clientHeight || 1;
-      renderer.setSize(w, h);
+      renderer.setSize(w * RENDER_SCALE, h * RENDER_SCALE);
+      // Restore CSS to fill container (setSize overrides it)
+      gl.canvas.style.width = "100%";
+      gl.canvas.style.height = "100%";
       iResBuf[0] = gl.drawingBufferWidth;
       iResBuf[1] = gl.drawingBufferHeight;
-      offsetPxBuf[0] = offX * dpr;
-      offsetPxBuf[1] = offY * dpr;
+      offsetPxBuf[0] = offX * dpr * RENDER_SCALE;
+      offsetPxBuf[1] = offY * dpr * RENDER_SCALE;
       program.uniforms.uPxScale.value =
         1 / ((gl.drawingBufferHeight || 1) * 0.1 * SCALE);
     };

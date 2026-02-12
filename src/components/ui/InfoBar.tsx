@@ -23,7 +23,7 @@ export function InfoBar() {
 	}, []);
 
 	return (
-		<div className="flex items-center justify-between px-6 md:px-12 py-4 w-full border-t border-border-subtle bg-surface-base/80 backdrop-blur-sm">
+		<div className="flex items-center justify-between px-6 md:px-12 py-4 w-full border-t border-border-subtle bg-surface-base/95">
 			<h6 className="text-text-muted tracking-widest uppercase" style={{ fontSize: "13px", fontWeight: 400, letterSpacing: "0.08em" }}>
 				Frontier AI Research Lab
 			</h6>
