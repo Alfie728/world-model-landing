@@ -1,36 +1,38 @@
 @import "tailwindcss";
 
-:root {
-	color-scheme: dark;
-}
+@theme {
+	/* Obsidian palette — warm dark with electric accents */
+	--color-surface-base: #060608;
+	--color-surface-raised: #0C0D12;
+	--color-surface-overlay: #141520;
 
-@theme inline {
-	--font-heading: var(--font-space-grotesk);
-	--font-body: var(--font-source-serif);
-	--font-mono: var(--font-geist-mono);
+	--color-border-subtle: rgba(237, 235, 230, 0.06);
+	--color-border-accent: rgba(52, 211, 153, 0.25);
 
-	--color-surface-base: #000000;
-	--color-surface-raised: #0A0A0F;
-	--color-surface-overlay: #111118;
+	--color-text-primary: #EDEBE6;
+	--color-text-secondary: #8E8B83;
+	--color-text-muted: #504E48;
 
-	--color-border-subtle: rgba(255, 255, 255, 0.06);
-	--color-border-accent: rgba(99, 102, 241, 0.3);
+	--color-accent-emerald: #34D399;
+	--color-accent-amber: #F0C674;
+	--color-accent-rose: #F472B6;
 
-	--color-text-primary: #F0F0F5;
-	--color-text-secondary: #8A8A9A;
-	--color-text-muted: #555566;
-
-	--color-accent-indigo: #6366F1;
-	--color-accent-cyan: #22D3EE;
-	--color-accent-violet: #8B5CF6;
-
-	--color-glow-indigo: rgba(99, 102, 241, 0.15);
-	--color-glow-cyan: rgba(34, 211, 238, 0.1);
-	--color-glow-violet: rgba(139, 92, 246, 0.12);
+	--color-glow-emerald: rgba(52, 211, 153, 0.12);
+	--color-glow-amber: rgba(240, 198, 116, 0.08);
+	--color-glow-rose: rgba(244, 114, 182, 0.10);
 
 	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 	--ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+:root {
+	color-scheme: dark;
+}
+
+/* Utility classes for fonts (replacing @theme font tokens) */
+.font-heading { font-family: var(--font-heading) !important; }
+.font-body { font-family: var(--font-body) !important; }
+.font-mono { font-family: var(--font-mono) !important; }
 
 html {
 	background: var(--color-surface-base);
@@ -38,7 +40,14 @@ html {
 }
 
 body {
-	font-family: var(--font-body), Georgia, "Times New Roman", serif;
+	/* Next.js sets --font-syne, --font-inter, --font-jetbrains-mono on <body>.
+	   We alias them here so the typography rules can reference them. */
+	--font-heading: var(--font-syne), sans-serif;
+	--font-body: var(--font-inter), sans-serif;
+	--font-mono: var(--font-jetbrains-mono), monospace;
+	--font-serif: var(--font-instrument-serif), Georgia, serif;
+
+	font-family: var(--font-body);
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 26px;
@@ -46,20 +55,21 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* Offground-matched typography scale */
+/* Typography scale */
 h1, .h1 {
 	font-family: var(--font-heading);
 	font-size: 95px;
-	letter-spacing: 0.0065em;
-	line-height: 109px;
-	font-weight: 300;
+	letter-spacing: -0.02em;
+	line-height: 100px;
+	font-weight: 700;
 }
 
 h2, .h2 {
 	font-family: var(--font-heading);
 	font-size: 40px;
-	font-weight: 300;
+	font-weight: 600;
 	line-height: 46px;
+	letter-spacing: -0.01em;
 }
 
 h3, .h3 {
@@ -70,44 +80,48 @@ h3, .h3 {
 }
 
 h4, .h4 {
+	font-family: var(--font-body);
 	font-size: 22px;
 	line-height: 30px;
 	font-weight: 300;
 }
 
 h5, .h5 {
+	font-family: var(--font-body);
 	font-weight: 300;
 	font-size: 18px;
-	line-height: 24px;
+	line-height: 28px;
 }
 
 h6, .h6 {
+	font-family: var(--font-body);
 	font-size: 16px;
 	line-height: 24px;
-	font-weight: 700;
+	font-weight: 600;
 }
 
 blockquote {
-	font-size: 30px;
-	line-height: 42px;
+	font-size: 32px;
+	line-height: 44px;
 	font-weight: 400;
 	font-style: italic;
-	font-family: var(--font-heading);
+	font-family: var(--font-serif);
+	letter-spacing: 0;
 }
 
 @media only screen and (max-width: 767px) {
-	h1, .h1 { font-size: 40px; line-height: 40px; }
-	h2, .h2 { font-size: 24px; line-height: 32px; }
-	h3, .h3 { font-size: 20px; line-height: 24px; }
+	h1, .h1 { font-size: 40px; line-height: 44px; }
+	h2, .h2 { font-size: 28px; line-height: 34px; }
+	h3, .h3 { font-size: 22px; line-height: 28px; }
 }
 
 ::selection {
-	background: var(--color-accent-indigo);
-	color: white;
+	background: var(--color-accent-emerald);
+	color: #060608;
 }
 
 ::-webkit-scrollbar {
-	width: 4px;
+	width: 3px;
 }
 
 ::-webkit-scrollbar-track {

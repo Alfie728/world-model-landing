@@ -24,12 +24,12 @@ export function Hero() {
 
 			{/* Glow orbs */}
 			<GlowOrb
-				color="indigo"
+				color="emerald"
 				size={500}
 				className="top-1/4 right-1/4 -translate-x-1/2"
 			/>
 			<GlowOrb
-				color="cyan"
+				color="amber"
 				size={350}
 				className="bottom-1/3 left-1/4 translate-x-1/2"
 			/>
@@ -47,20 +47,20 @@ export function Hero() {
 						ease: [0.16, 1, 0.3, 1],
 					}}
 				>
-					<span className="w-1.5 h-1.5 rounded-full bg-accent-indigo animate-pulse" />
+					<span className="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-pulse" />
 					<span className="font-mono text-xs tracking-widest text-text-muted uppercase">
 						{content.hero.badge}
 					</span>
 				</motion.div>
 
-				{/* Heading — h1 picks up 95px/109px/300 from globals.css */}
+				{/* Heading */}
 				<h1 className="font-heading">
 					{words.map((word, i) => (
 						<motion.span
 							key={`${word}-${i}`}
 							className={`inline-block mr-[0.25em] ${
 								word === "Era" || word === "Experience"
-									? "text-accent-indigo"
+									? "text-accent-emerald"
 									: ""
 							}`}
 							initial={{ opacity: 0, y: 40 }}
@@ -76,7 +76,7 @@ export function Hero() {
 					))}
 				</h1>
 
-				{/* Subtitle — h4 picks up 22px/30px/300 from globals.css */}
+				{/* Subtitle */}
 				<motion.h4
 					className="mt-8 text-text-secondary font-body max-w-2xl mx-auto"
 					initial={{ opacity: 0, y: 20 }}
@@ -102,7 +102,7 @@ export function Hero() {
 					Scroll
 				</span>
 				<motion.div
-					className="w-px h-8 bg-gradient-to-b from-text-muted to-transparent"
+					className="w-px h-8 bg-gradient-to-b from-accent-emerald/50 to-transparent"
 					animate={{ y: [0, 8, 0] }}
 					transition={{
 						duration: 2,

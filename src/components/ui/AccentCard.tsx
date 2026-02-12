@@ -10,23 +10,23 @@ interface AccentCardProps {
 }
 
 const accentStyles = {
-	indigo: {
-		border: "border-accent-indigo/20 hover:border-accent-indigo/40",
-		glow: "hover:shadow-[0_0_60px_-15px_rgba(99,102,241,0.3)]",
-		dot: "bg-accent-indigo",
-		number: "text-accent-indigo",
+	emerald: {
+		border: "border-accent-emerald/20 hover:border-accent-emerald/40",
+		glow: "hover:shadow-[0_0_60px_-15px_rgba(52,211,153,0.3)]",
+		dot: "bg-accent-emerald",
+		number: "text-accent-emerald",
 	},
-	cyan: {
-		border: "border-accent-cyan/20 hover:border-accent-cyan/40",
-		glow: "hover:shadow-[0_0_60px_-15px_rgba(34,211,238,0.3)]",
-		dot: "bg-accent-cyan",
-		number: "text-accent-cyan",
+	amber: {
+		border: "border-accent-amber/20 hover:border-accent-amber/40",
+		glow: "hover:shadow-[0_0_60px_-15px_rgba(240,198,116,0.3)]",
+		dot: "bg-accent-amber",
+		number: "text-accent-amber",
 	},
-	violet: {
-		border: "border-accent-violet/20 hover:border-accent-violet/40",
-		glow: "hover:shadow-[0_0_60px_-15px_rgba(139,92,246,0.3)]",
-		dot: "bg-accent-violet",
-		number: "text-accent-violet",
+	rose: {
+		border: "border-accent-rose/20 hover:border-accent-rose/40",
+		glow: "hover:shadow-[0_0_60px_-15px_rgba(244,114,182,0.3)]",
+		dot: "bg-accent-rose",
+		number: "text-accent-rose",
 	},
 };
 
@@ -53,7 +53,6 @@ export function AccentCard({ vector, index }: AccentCardProps) {
 				{vector.number}
 			</span>
 
-			{/* h3: 28px/34px/500 from Offground */}
 			<h3 className="font-heading mt-4 text-text-primary">
 				{vector.title}
 			</h3>
@@ -62,7 +61,6 @@ export function AccentCard({ vector, index }: AccentCardProps) {
 				{vector.tagline}
 			</h6>
 
-			{/* h5: 18px/24px/300 from Offground */}
 			<h5 className="text-text-secondary mt-5">
 				{vector.description}
 			</h5>

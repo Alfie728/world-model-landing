@@ -100,7 +100,7 @@ function SlideHeaderItem({
   const dotColor = useTransform(activeIndex, (latest) => {
     const rounded = Math.round(latest as number);
     return rounded === index
-      ? "var(--color-accent-cyan)"
+      ? "var(--color-accent-emerald)"
       : "var(--color-text-muted)";
   });
 

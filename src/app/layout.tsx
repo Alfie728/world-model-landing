@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { spaceGrotesk, sourceSerif, geistMono } from "~/lib/fonts";
+import { syne, inter, jetbrainsMono, instrumentSerif } from "~/lib/fonts";
 import { SmoothScroll } from "~/components/providers/SmoothScroll";
 import "./globals.css";
 
@@ -17,7 +17,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="dark">
 			<body
-				className={`${spaceGrotesk.variable} ${sourceSerif.variable} ${geistMono.variable} antialiased bg-surface-base text-text-primary`}
+				className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} antialiased bg-surface-base text-text-primary`}
 			>
 				<SmoothScroll>{children}</SmoothScroll>
 			</body>

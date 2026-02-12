@@ -3,15 +3,15 @@
 import { motion } from "motion/react";
 
 interface GlowOrbProps {
-	color: "indigo" | "cyan" | "violet";
+	color: "emerald" | "amber" | "rose";
 	size?: number;
 	className?: string;
 }
 
 const colorMap = {
-	indigo: "bg-accent-indigo/20",
-	cyan: "bg-accent-cyan/15",
-	violet: "bg-accent-violet/15",
+	emerald: "bg-accent-emerald/15",
+	amber: "bg-accent-amber/10",
+	rose: "bg-accent-rose/10",
 };
 
 export function GlowOrb({ color, size = 400, className = "" }: GlowOrbProps) {
