@@ -12,8 +12,8 @@ export function WhyThisMatters() {
 			<SVGMaskReveal>
 				<h1 className="font-heading max-w-4xl">
 					Closing the Gap Between{" "}
-					<span className="text-accent-amber">Models</span> and{" "}
-					<span className="text-accent-emerald">Experience</span>
+					<span className="text-accent-warm">Models</span> and{" "}
+					<span className="text-accent-blue">Experience</span>
 				</h1>
 			</SVGMaskReveal>
 

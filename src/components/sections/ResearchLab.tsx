@@ -35,7 +35,7 @@ export function ResearchLab() {
           style={{
             transformOrigin: "left",
             background:
-              "linear-gradient(to right, var(--color-accent-emerald), transparent)",
+              "linear-gradient(to right, var(--color-accent-blue), transparent)",
           }}
         />
 
@@ -56,7 +56,7 @@ export function ResearchLab() {
           {data.bullets.map((bullet, i) => (
             <FadeInView key={bullet} delay={0.1 + i * 0.06}>
               <div className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald mt-2 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-blue mt-2 flex-shrink-0" />
                 <h5 className="text-text-secondary">{bullet}</h5>
               </div>
             </FadeInView>

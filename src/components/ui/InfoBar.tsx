@@ -34,8 +34,8 @@ export function InfoBar() {
 
 			<div className="flex items-center gap-3">
 				<span className="relative flex h-2 w-2">
-					<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
-					<span className="relative inline-flex h-2 w-2 rounded-full bg-accent-emerald" />
+					<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-blue opacity-75" />
+					<span className="relative inline-flex h-2 w-2 rounded-full bg-accent-blue" />
 				</span>
 				<span className="font-mono text-xs text-text-muted tracking-wider">
 					{time || "--:--"} PT

@@ -90,7 +90,7 @@ function SlideHeaderItem({
 }: {
   label: string;
   index: number;
-  activeIndex: ReturnType<typeof useTransform>;
+  activeIndex: ReturnType<typeof useTransform<unknown, number>>;
 }) {
   const opacity = useTransform(activeIndex, (latest) => {
     const rounded = Math.round(latest as number);
@@ -100,7 +100,7 @@ function SlideHeaderItem({
   const dotColor = useTransform(activeIndex, (latest) => {
     const rounded = Math.round(latest as number);
     return rounded === index
-      ? "var(--color-accent-emerald)"
+      ? "var(--color-accent-blue)"
       : "var(--color-text-muted)";
   });
 

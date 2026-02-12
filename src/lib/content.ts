@@ -69,7 +69,7 @@ export const content = {
 			],
 			closing:
 				"This data is suited for training models that must predict how environments evolve, plan over time, and generalize beyond scripted settings.",
-			accent: "emerald" as const,
+			accent: "blue" as const,
 		},
 		{
 			number: "05",
@@ -85,7 +85,7 @@ export const content = {
 			],
 			closing:
 				"We collect structured egocentric robotics data designed for this transition, captured from real humans performing real tasks, with annotations aligned to world-model and policy training rather than short-horizon imitation alone.",
-			accent: "amber" as const,
+			accent: "warm" as const,
 		},
 		{
 			number: "06",
@@ -100,7 +100,7 @@ export const content = {
 			],
 			closing:
 				"Hardware is not a side project. It is a prerequisite for building datasets that support world models and embodied learning at scale.",
-			accent: "rose" as const,
+			accent: "sky" as const,
 		},
 	],
 

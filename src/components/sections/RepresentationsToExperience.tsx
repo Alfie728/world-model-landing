@@ -32,7 +32,7 @@ export function RepresentationsToExperience() {
           {data.bullets.map((bullet, i) => (
             <FadeInView key={bullet} delay={0.1 + i * 0.06}>
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-amber mt-2 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-warm mt-2 flex-shrink-0" />
                 <h5 className="text-text-secondary">{bullet}</h5>
               </li>
             </FadeInView>

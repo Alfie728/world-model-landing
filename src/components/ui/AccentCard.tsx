@@ -10,23 +10,23 @@ interface AccentCardProps {
 }
 
 const accentStyles = {
-	emerald: {
-		border: "border-accent-emerald/20 hover:border-accent-emerald/40",
-		glow: "hover:shadow-[0_0_60px_-15px_rgba(52,211,153,0.3)]",
-		dot: "bg-accent-emerald",
-		number: "text-accent-emerald",
+	blue: {
+		border: "border-accent-blue/20 hover:border-accent-blue/40",
+		glow: "hover:shadow-[0_0_60px_-15px_rgba(60,149,231,0.3)]",
+		dot: "bg-accent-blue",
+		number: "text-accent-blue",
 	},
-	amber: {
-		border: "border-accent-amber/20 hover:border-accent-amber/40",
-		glow: "hover:shadow-[0_0_60px_-15px_rgba(240,198,116,0.3)]",
-		dot: "bg-accent-amber",
-		number: "text-accent-amber",
+	warm: {
+		border: "border-accent-warm/20 hover:border-accent-warm/40",
+		glow: "hover:shadow-[0_0_60px_-15px_rgba(169,151,136,0.3)]",
+		dot: "bg-accent-warm",
+		number: "text-accent-warm",
 	},
-	rose: {
-		border: "border-accent-rose/20 hover:border-accent-rose/40",
-		glow: "hover:shadow-[0_0_60px_-15px_rgba(244,114,182,0.3)]",
-		dot: "bg-accent-rose",
-		number: "text-accent-rose",
+	sky: {
+		border: "border-accent-sky/20 hover:border-accent-sky/40",
+		glow: "hover:shadow-[0_0_60px_-15px_rgba(45,172,239,0.3)]",
+		dot: "bg-accent-sky",
+		number: "text-accent-sky",
 	},
 };
 

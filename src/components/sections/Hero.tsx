@@ -1,116 +1,74 @@
 "use client";
 
 import { motion } from "motion/react";
-import { GlowOrb } from "~/components/animations/GlowOrb";
+import Prism from "~/components/Prism";
 import { content } from "~/lib/content";
 
 const words = content.hero.heading.split(" ");
 
 export function Hero() {
-	return (
-		<section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
-			{/* Background gradient */}
-			<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--color-surface-raised)_0%,_var(--color-surface-base)_70%)]" />
+  return (
+    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+      {/* Content */}
+      <div className="relative text-center max-w-5xl px-6">
+        {/* Heading */}
+        <h1 className="font-heading">
+          {words.map((word, i) => (
+            <motion.span
+              key={`${word}-${i}`}
+              className={`inline-block mr-[0.25em] ${
+                word === "Era" || word === "Experience"
+                  ? "text-accent-blue"
+                  : ""
+              }`}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3 + i * 0.06,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h1>
 
-			{/* Subtle grid */}
-			<div
-				className="absolute inset-0 opacity-[0.03]"
-				style={{
-					backgroundImage:
-						"radial-gradient(circle, var(--color-text-muted) 1px, transparent 1px)",
-					backgroundSize: "40px 40px",
-				}}
-			/>
+        {/* Subtitle */}
+        <motion.h4
+          className="mt-8 text-text-secondary font-body max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.9,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          {content.hero.subtitle}
+        </motion.h4>
+      </div>
 
-			{/* Glow orbs */}
-			<GlowOrb
-				color="emerald"
-				size={500}
-				className="top-1/4 right-1/4 -translate-x-1/2"
-			/>
-			<GlowOrb
-				color="amber"
-				size={350}
-				className="bottom-1/3 left-1/4 translate-x-1/2"
-			/>
-
-			{/* Content */}
-			<div className="relative z-10 text-center max-w-5xl px-6">
-				{/* Badge */}
-				<motion.div
-					className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border-subtle bg-surface-raised/50 backdrop-blur-sm mb-8"
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{
-						duration: 0.8,
-						delay: 0.1,
-						ease: [0.16, 1, 0.3, 1],
-					}}
-				>
-					<span className="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-pulse" />
-					<span className="font-mono text-xs tracking-widest text-text-muted uppercase">
-						{content.hero.badge}
-					</span>
-				</motion.div>
-
-				{/* Heading */}
-				<h1 className="font-heading">
-					{words.map((word, i) => (
-						<motion.span
-							key={`${word}-${i}`}
-							className={`inline-block mr-[0.25em] ${
-								word === "Era" || word === "Experience"
-									? "text-accent-emerald"
-									: ""
-							}`}
-							initial={{ opacity: 0, y: 40 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{
-								duration: 0.8,
-								delay: 0.3 + i * 0.06,
-								ease: [0.16, 1, 0.3, 1],
-							}}
-						>
-							{word}
-						</motion.span>
-					))}
-				</h1>
-
-				{/* Subtitle */}
-				<motion.h4
-					className="mt-8 text-text-secondary font-body max-w-2xl mx-auto"
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{
-						duration: 0.8,
-						delay: 0.9,
-						ease: [0.16, 1, 0.3, 1],
-					}}
-				>
-					{content.hero.subtitle}
-				</motion.h4>
-			</div>
-
-			{/* Scroll indicator */}
-			<motion.div
-				className="absolute bottom-12 flex flex-col items-center gap-2"
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ delay: 1.5, duration: 1 }}
-			>
-				<span className="font-mono text-[10px] tracking-widest text-text-muted uppercase">
-					Scroll
-				</span>
-				<motion.div
-					className="w-px h-8 bg-gradient-to-b from-accent-emerald/50 to-transparent"
-					animate={{ y: [0, 8, 0] }}
-					transition={{
-						duration: 2,
-						repeat: Number.POSITIVE_INFINITY,
-						ease: "easeInOut",
-					}}
-				/>
-			</motion.div>
-		</section>
-	);
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-12 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+      >
+        <span className="font-mono text-[10px] tracking-widest text-text-muted uppercase">
+          Scroll
+        </span>
+        <motion.div
+          className="w-px h-8 bg-gradient-to-b from-accent-blue/50 to-transparent"
+          animate={{ y: [0, 8, 0] }}
+          transition={{
+            duration: 2,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+        />
+      </motion.div>
+    </section>
+  );
 }

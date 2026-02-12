@@ -25,7 +25,7 @@ export function ProblemStatement() {
           {data.paragraphs.map((p, i) => (
             <FadeInView key={p.slice(0, 20)} delay={i * 0.08}>
               {p === "It is a data problem." ? (
-                <h2 className="text-accent-emerald">{p}</h2>
+                <h2 className="text-accent-blue">{p}</h2>
               ) : (
                 <h5 className="text-text-secondary">{p}</h5>
               )}

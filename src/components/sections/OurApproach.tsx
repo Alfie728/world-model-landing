@@ -37,7 +37,7 @@ export function OurApproach() {
             style={{
               transformOrigin: "left",
               background:
-                "linear-gradient(to right, var(--color-accent-emerald), var(--color-accent-amber))",
+                "linear-gradient(to right, var(--color-accent-blue), var(--color-accent-warm))",
             }}
           />
         </div>
@@ -56,7 +56,7 @@ export function OurApproach() {
           {data.bullets.map((bullet, i) => (
             <FadeInView key={bullet} delay={0.2 + i * 0.06}>
               <div className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-amber mt-2 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-warm mt-2 flex-shrink-0" />
                 <h5 className="text-text-secondary">{bullet}</h5>
               </div>
             </FadeInView>
@@ -66,7 +66,7 @@ export function OurApproach() {
         <FadeInView delay={0.5} className="mt-8">
           <h3 className="font-heading text-text-primary">
             The goal is not volume alone, but{" "}
-            <span className="text-accent-emerald">useful experience</span>.
+            <span className="text-accent-blue">useful experience</span>.
           </h3>
         </FadeInView>
       </div>
