@@ -70,6 +70,7 @@ export const content = {
 			closing:
 				"This data is suited for training models that must predict how environments evolve, plan over time, and generalize beyond scripted settings.",
 			accent: "blue" as const,
+			image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80&auto=format",
 		},
 		{
 			number: "05",
@@ -86,6 +87,7 @@ export const content = {
 			closing:
 				"We collect structured egocentric robotics data designed for this transition, captured from real humans performing real tasks, with annotations aligned to world-model and policy training rather than short-horizon imitation alone.",
 			accent: "warm" as const,
+			image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format",
 		},
 		{
 			number: "06",
@@ -101,6 +103,7 @@ export const content = {
 			closing:
 				"Hardware is not a side project. It is a prerequisite for building datasets that support world models and embodied learning at scale.",
 			accent: "sky" as const,
+			image: "https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=800&q=80&auto=format",
 		},
 	],
 

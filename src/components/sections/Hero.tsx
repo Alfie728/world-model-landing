@@ -7,9 +7,9 @@ const words = content.hero.heading.split(" ");
 
 export function Hero() {
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="flex flex-col items-center justify-center" style={{ height: "calc(100vh - var(--nav-height))" }}>
       {/* Content */}
-      <div className="relative text-center max-w-5xl px-6">
+      <div className="text-center max-w-5xl px-6">
         {/* Heading */}
         <h1 className="font-heading">
           {words.map((word, i) => (

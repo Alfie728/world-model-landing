@@ -31,6 +31,7 @@
 
 :root {
 	color-scheme: dark;
+	--nav-height: 68px;
 	--radius: 0.625rem;
 	--background: oklch(0.10 0.02 250);
 	--foreground: oklch(0.96 0.015 210);
