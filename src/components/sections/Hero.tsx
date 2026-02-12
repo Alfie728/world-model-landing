@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import Prism from "~/components/Prism";
 import { content } from "~/lib/content";
 
 const words = content.hero.heading.split(" ");
@@ -48,27 +47,6 @@ export function Hero() {
           {content.hero.subtitle}
         </motion.h4>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-12 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
-        <span className="font-mono text-[10px] tracking-widest text-text-muted uppercase">
-          Scroll
-        </span>
-        <motion.div
-          className="w-px h-8 bg-gradient-to-b from-accent-blue/50 to-transparent"
-          animate={{ y: [0, 8, 0] }}
-          transition={{
-            duration: 2,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      </motion.div>
     </section>
   );
 }
