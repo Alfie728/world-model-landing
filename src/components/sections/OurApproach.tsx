@@ -14,7 +14,7 @@ export function OurApproach() {
 
   return (
     <div className="min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex items-center max-md:w-full max-md:relative max-md:min-h-screen max-md:py-24 max-md:px-6 overflow-hidden">
-      {/* Subtle background visual — abstract data flow */}
+      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format"
@@ -25,14 +25,14 @@ export function OurApproach() {
         <div className="absolute inset-0 bg-gradient-to-r from-surface-base from-5% via-transparent via-50% to-surface-base to-95%" />
       </div>
 
-      {/* Two-column layout */}
-      <div className="absolute top-[14vh] left-[6vw] max-w-[40vw] z-[2] max-md:static max-md:max-w-none">
-        <span className="font-mono text-base tracking-widest text-accent-warm">
+      {/* Left column — heading + subtitle */}
+      <div className="absolute top-[14vh] left-[5vw] max-w-[42vw] z-[2] max-md:static max-md:max-w-none">
+        <span className="font-mono text-sm tracking-[0.3em] uppercase text-accent-warm">
           {data.number}
         </span>
 
         <SVGMaskReveal className="mt-5">
-          <h1 className="text-[clamp(48px,5vw,88px)] leading-[1.05]">
+          <h1 className="text-[clamp(44px,5.5vw,96px)] leading-[0.95] tracking-[-0.03em]">
             {data.heading}
           </h1>
         </SVGMaskReveal>
@@ -57,7 +57,7 @@ export function OurApproach() {
 
         <FadeInView>
           <h2
-            className="text-text-secondary text-[clamp(22px,1.8vw,36px)] leading-snug"
+            className="text-text-secondary text-[clamp(22px,2vw,38px)] leading-[1.3]"
             style={{ fontWeight: 300 }}
           >
             {data.subtitle}
@@ -65,10 +65,10 @@ export function OurApproach() {
         </FadeInView>
       </div>
 
-      {/* Right column — body, bullets, closing statement */}
-      <div className="absolute top-[28vh] right-[6vw] max-w-[36vw] z-[2] max-md:static max-md:max-w-none max-md:mt-8">
+      {/* Right column — body, bullets, closing */}
+      <div className="absolute top-[28vh] right-[5vw] max-w-[36vw] z-[2] max-md:static max-md:max-w-none max-md:mt-8">
         <FadeInView delay={0.1}>
-          <p className="text-text-secondary text-[clamp(16px,1.15vw,20px)] leading-relaxed">
+          <p className="text-text-secondary text-[clamp(17px,1.3vw,24px)] leading-[1.65]">
             {data.paragraphs[0]}
           </p>
         </FadeInView>
@@ -78,7 +78,7 @@ export function OurApproach() {
             <FadeInView key={bullet} delay={0.2 + i * 0.06}>
               <div className="flex items-start gap-3">
                 <span className="w-2 h-2 rounded-full bg-accent-warm mt-2.5 flex-shrink-0" />
-                <span className="text-text-secondary text-[clamp(16px,1.1vw,20px)] leading-relaxed">
+                <span className="text-text-secondary text-[clamp(16px,1.2vw,22px)] leading-[1.6]">
                   {bullet}
                 </span>
               </div>
@@ -87,7 +87,7 @@ export function OurApproach() {
         </div>
 
         <FadeInView delay={0.5} className="mt-10">
-          <h2 className="font-heading text-text-primary text-[clamp(24px,2vw,40px)] leading-snug">
+          <h2 className="font-heading text-text-primary text-[clamp(24px,2.2vw,42px)] leading-[1.2]">
             The goal is not volume alone, but{" "}
             <span className="text-accent-blue">useful experience</span>.
           </h2>

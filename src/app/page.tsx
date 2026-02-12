@@ -5,7 +5,10 @@ import { Footer } from "~/components/sections/Footer";
 import { Hero } from "~/components/sections/Hero";
 import { HorizontalScroll } from "~/components/sections/HorizontalScroll";
 import { OurApproach } from "~/components/sections/OurApproach";
-import { ProblemStatement } from "~/components/sections/ProblemStatement";
+import {
+  ProblemStatementHero,
+  ProblemStatementCore,
+} from "~/components/sections/ProblemStatement";
 import { ProductVectors } from "~/components/sections/ProductVectors";
 import { RepresentationsToExperience } from "~/components/sections/RepresentationsToExperience";
 import { ResearchLab } from "~/components/sections/ResearchLab";
@@ -36,7 +39,8 @@ export default function Home() {
         </div>
         <Hero />
         <HorizontalScroll>
-          <ProblemStatement />
+          <ProblemStatementHero />
+          <ProblemStatementCore />
           <RepresentationsToExperience />
           <ResearchLab />
           <ProductVectors />

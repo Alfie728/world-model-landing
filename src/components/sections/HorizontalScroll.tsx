@@ -2,19 +2,20 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { Children, type ReactNode, useRef } from "react";
-import { InfoBar } from "~/components/ui/InfoBar";
 import { useMediaQuery } from "~/lib/hooks/useMediaQuery";
 
 interface HorizontalScrollProps {
   children: ReactNode;
 }
 
-const slideLabels = [
-  "The Problem",
-  "Experience",
-  "Research Lab",
-  "Products",
-  "Approach",
+// Maps each header label to the number of slides it covers.
+// Sum of all counts must equal the number of children in <HorizontalScroll>.
+const slideGroups = [
+  { label: "The Problem", count: 2 },
+  { label: "Experience", count: 1 },
+  { label: "Research Lab", count: 1 },
+  { label: "Products", count: 1 },
+  { label: "Approach", count: 1 },
 ];
 
 export function HorizontalScroll({ children }: HorizontalScrollProps) {
@@ -48,6 +49,18 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
     return <div className="flex flex-col">{children}</div>;
   }
 
+  // Pre-compute each group's slide range
+  let startIdx = 0;
+  const groupRanges = slideGroups.map((group) => {
+    const range = {
+      label: group.label,
+      start: startIdx,
+      end: startIdx + group.count - 1,
+    };
+    startIdx += group.count;
+    return range;
+  });
+
   return (
     <div
       className="relative bg-surface-base"
@@ -58,11 +71,12 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
       <div className="sticky top-0 left-0 h-screen w-full overflow-hidden">
         {/* Slides header — Offground-style navigation dots */}
         <div className="relative z-10 flex w-full justify-between px-6 md:px-12 pt-8">
-          {slideLabels.map((label, i) => (
+          {groupRanges.map((group) => (
             <SlideHeaderItem
-              key={label}
-              label={label}
-              index={i}
+              key={group.label}
+              label={group.label}
+              slideStart={group.start}
+              slideEnd={group.end}
               activeIndex={activeIndex}
             />
           ))}
@@ -85,21 +99,23 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
 
 function SlideHeaderItem({
   label,
-  index,
+  slideStart,
+  slideEnd,
   activeIndex,
 }: {
   label: string;
-  index: number;
+  slideStart: number;
+  slideEnd: number;
   activeIndex: ReturnType<typeof useTransform<unknown, number>>;
 }) {
   const opacity = useTransform(activeIndex, (latest) => {
     const rounded = Math.round(latest as number);
-    return rounded === index ? 1 : 0.35;
+    return rounded >= slideStart && rounded <= slideEnd ? 1 : 0.35;
   });
 
   const dotColor = useTransform(activeIndex, (latest) => {
     const rounded = Math.round(latest as number);
-    return rounded === index
+    return rounded >= slideStart && rounded <= slideEnd
       ? "var(--color-accent-blue)"
       : "var(--color-text-muted)";
   });

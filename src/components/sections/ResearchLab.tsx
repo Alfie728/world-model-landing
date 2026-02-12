@@ -14,17 +14,17 @@ export function ResearchLab() {
 
   return (
     <div className="min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex items-center max-md:w-full max-md:relative max-md:min-h-screen max-md:py-24 max-md:px-6 overflow-hidden">
-      {/* Heading — left side, larger */}
+      {/* Heading — left side */}
       <div
         ref={lineRef}
-        className="absolute top-[16vh] left-[6vw] max-w-[48vw] z-[2] max-md:static max-md:max-w-none"
+        className="absolute top-[14vh] left-[5vw] max-w-[48vw] z-[2] max-md:static max-md:max-w-none"
       >
-        <span className="font-mono text-base tracking-widest text-accent-blue">
+        <span className="font-mono text-sm tracking-[0.3em] uppercase text-accent-blue">
           {data.number}
         </span>
 
         <SVGMaskReveal className="mt-5">
-          <h1 className="text-[clamp(36px,4vw,72px)] leading-[1.1]">
+          <h1 className="text-[clamp(44px,5.5vw,96px)] leading-[0.95] tracking-[-0.03em]">
             {data.heading}
           </h1>
         </SVGMaskReveal>
@@ -43,7 +43,7 @@ export function ResearchLab() {
 
         <FadeInView className="mt-8">
           <h2
-            className="text-text-secondary text-[clamp(22px,1.8vw,36px)] leading-snug"
+            className="text-text-secondary text-[clamp(22px,2vw,38px)] leading-[1.3]"
             style={{ fontWeight: 300 }}
           >
             {data.subtitle}
@@ -51,12 +51,12 @@ export function ResearchLab() {
         </FadeInView>
       </div>
 
-      {/* Bullets — bottom right, larger */}
-      <div className="absolute bottom-[8vh] right-[6vw] max-w-[36vw] z-[2] max-md:static max-md:max-w-none max-md:mt-8">
+      {/* Bullets — bottom right */}
+      <div className="absolute bottom-[8vh] right-[5vw] max-w-[36vw] z-[2] max-md:static max-md:max-w-none max-md:mt-8">
         <FadeInView>
-          <h4 className="text-text-secondary text-[clamp(16px,1.2vw,22px)] leading-relaxed">
+          <p className="text-text-secondary text-[clamp(17px,1.3vw,24px)] leading-[1.65]">
             {data.paragraphs[0]}
-          </h4>
+          </p>
         </FadeInView>
 
         <div className="mt-6 space-y-3">
@@ -64,7 +64,7 @@ export function ResearchLab() {
             <FadeInView key={bullet} delay={0.1 + i * 0.06}>
               <div className="flex items-start gap-3">
                 <span className="w-2 h-2 rounded-full bg-accent-blue mt-2.5 flex-shrink-0" />
-                <span className="text-text-secondary text-[clamp(16px,1.1vw,20px)] leading-relaxed">
+                <span className="text-text-secondary text-[clamp(16px,1.2vw,22px)] leading-[1.6]">
                   {bullet}
                 </span>
               </div>
@@ -73,7 +73,7 @@ export function ResearchLab() {
         </div>
 
         <FadeInView delay={0.4} className="mt-8">
-          <p className="text-text-muted text-[clamp(14px,0.9vw,16px)] leading-relaxed">
+          <p className="text-text-muted text-[clamp(15px,1.1vw,19px)] leading-[1.65]">
             {data.closing}
           </p>
         </FadeInView>

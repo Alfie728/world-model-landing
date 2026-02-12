@@ -10,24 +10,30 @@ export function RepresentationsToExperience() {
   return (
     <div className="min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex items-center max-md:w-full max-md:relative max-md:min-h-screen max-md:py-24 max-md:px-6 overflow-hidden">
       {/* Large pull quote — left side, upper area */}
-      <div className="absolute top-[12vh] left-[6vw] max-w-[60vw] z-[2] max-md:static max-md:max-w-none">
-        <span className="font-mono text-base tracking-widest text-accent-warm">
+      <div className="absolute top-[12vh] left-[5vw] max-w-[55vw] z-[2] max-md:static max-md:max-w-none">
+        <span className="font-mono text-sm tracking-[0.3em] uppercase text-accent-warm">
           {data.number}
         </span>
 
-        <SVGMaskReveal className="mt-6">
-          <blockquote className="text-text-primary text-[clamp(28px,2.8vw,48px)] leading-[1.35]">
+        <SVGMaskReveal className="mt-5">
+          <h1 className="text-[clamp(44px,5.5vw,96px)] leading-[0.95] tracking-[-0.03em]">
+            {data.heading}
+          </h1>
+        </SVGMaskReveal>
+
+        <FadeInView delay={0.15} className="mt-8">
+          <blockquote className="text-text-primary text-[clamp(24px,2.4vw,44px)] leading-[1.25]">
             &ldquo;{data.pullQuote}&rdquo;
           </blockquote>
-        </SVGMaskReveal>
+        </FadeInView>
       </div>
 
-      {/* Body + bullets — bottom right, larger text */}
-      <div className="absolute bottom-[8vh] right-[6vw] max-w-[40vw] z-[2] max-md:static max-md:max-w-none max-md:mt-10">
+      {/* Body + bullets — bottom right */}
+      <div className="absolute bottom-[8vh] right-[5vw] max-w-[38vw] z-[2] max-md:static max-md:max-w-none max-md:mt-10">
         <FadeInView>
-          <h4 className="text-accent-blue text-[clamp(18px,1.3vw,24px)] leading-relaxed">
+          <p className="text-text-secondary text-[clamp(17px,1.3vw,24px)] leading-[1.65]">
             {data.paragraphs[0]}
-          </h4>
+          </p>
         </FadeInView>
 
         <ul className="mt-6 space-y-3">
@@ -35,7 +41,7 @@ export function RepresentationsToExperience() {
             <FadeInView key={bullet} delay={0.1 + i * 0.06}>
               <li className="flex items-start gap-3">
                 <span className="w-2 h-2 rounded-full bg-accent-warm mt-2.5 flex-shrink-0" />
-                <span className="text-text-secondary text-[clamp(16px,1.1vw,20px)] leading-relaxed">
+                <span className="text-text-secondary text-[clamp(16px,1.2vw,22px)] leading-[1.6]">
                   {bullet}
                 </span>
               </li>
@@ -44,7 +50,7 @@ export function RepresentationsToExperience() {
         </ul>
 
         <FadeInView delay={0.4} className="mt-8">
-          <p className="text-text-secondary text-[clamp(15px,1vw,18px)] leading-relaxed">
+          <p className="text-text-muted text-[clamp(15px,1.1vw,19px)] leading-[1.65]">
             {data.closing}
           </p>
         </FadeInView>
