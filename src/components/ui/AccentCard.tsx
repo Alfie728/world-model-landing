@@ -13,14 +13,20 @@ const accentStyles = {
   blue: {
     border: "border-accent-blue/20 hover:border-accent-blue/40",
     glow: "hover:shadow-[0_0_80px_-15px_rgba(77,163,255,0.35)]",
+    lineGradient: "linear-gradient(to right, transparent, rgba(77,163,255,0.6), transparent)",
+    lineShadow: "0 0 10px rgba(77,163,255,0.3)",
   },
   warm: {
     border: "border-accent-warm/20 hover:border-accent-warm/40",
     glow: "hover:shadow-[0_0_80px_-15px_rgba(212,168,130,0.35)]",
+    lineGradient: "linear-gradient(to right, transparent, rgba(212,168,130,0.6), transparent)",
+    lineShadow: "0 0 10px rgba(212,168,130,0.3)",
   },
   sky: {
     border: "border-accent-sky/20 hover:border-accent-sky/40",
     glow: "hover:shadow-[0_0_80px_-15px_rgba(56,207,255,0.35)]",
+    lineGradient: "linear-gradient(to right, transparent, rgba(56,207,255,0.6), transparent)",
+    lineShadow: "0 0 10px rgba(56,207,255,0.3)",
   },
 };
 
@@ -43,6 +49,14 @@ export function AccentCard({ vector, index }: AccentCardProps) {
     >
       {/* Card image */}
       <div className="relative h-[180px] w-full overflow-hidden flex-shrink-0">
+        {/* Glowing accent top-border line */}
+        <div
+          className="absolute top-0 left-0 right-0 h-px z-10"
+          style={{
+            background: styles.lineGradient,
+            boxShadow: styles.lineShadow,
+          }}
+        />
         <img
           src={vector.image}
           alt={vector.title}

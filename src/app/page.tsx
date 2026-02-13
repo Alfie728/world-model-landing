@@ -1,13 +1,14 @@
 "use client";
 
+import LiquidEther from "~/components/LiquidEther";
 import Prism from "~/components/Prism";
 import { Footer } from "~/components/sections/Footer";
 import { Hero } from "~/components/sections/Hero";
 import { HorizontalScroll } from "~/components/sections/HorizontalScroll";
 import { OurApproach } from "~/components/sections/OurApproach";
 import {
-  ProblemStatementHero,
   ProblemStatementCore,
+  ProblemStatementHero,
 } from "~/components/sections/ProblemStatement";
 import { ProductVectors } from "~/components/sections/ProductVectors";
 import { RepresentationsToExperience } from "~/components/sections/RepresentationsToExperience";
