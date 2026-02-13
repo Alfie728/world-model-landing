@@ -8,11 +8,14 @@ const data = content.representationsToExperience;
 
 export function RepresentationsToExperience() {
   return (
-    <div className="relative flex h-full w-[100vw] min-w-[100vw] flex-shrink-0 items-center overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24">
+    <div className="relative flex h-full w-screen min-w-screen shrink-0 items-center overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24">
       {/* Left side — heading + quote */}
       <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[55vw] max-md:static max-md:max-w-none 2xl:left-[10vw]">
         <SVGMaskReveal>
-          <h1>{data.heading}</h1>
+          <h1>
+            From <span className="text-accent-blue">Representations</span> to{" "}
+            <span className="text-accent-blue">Experience</span>
+          </h1>
         </SVGMaskReveal>
 
         <FadeInView delay={0.15} className="mt-8">

@@ -167,6 +167,50 @@ body {
     line-height: 1.6;
     color: var(--color-text-secondary);
   }
+
+  @media (min-width: 192rem) {
+    h1,
+    .h1 {
+      font-size: 120px;
+    }
+
+    h2,
+    .h2 {
+      font-size: 46px;
+    }
+
+    h3,
+    .h3 {
+      font-size: 34px;
+    }
+
+    h4,
+    .h4 {
+      font-size: 28px;
+      line-height: 38px;
+    }
+
+    h5,
+    .h5 {
+      font-size: 22px;
+      line-height: 32px;
+    }
+
+    h6,
+    .h6 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    blockquote {
+      font-size: 48px;
+    }
+
+    p {
+      font-size: 28px;
+      line-height: 1.55;
+    }
+  }
 }
 
 ::selection {
