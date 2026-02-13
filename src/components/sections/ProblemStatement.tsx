@@ -16,7 +16,7 @@ function Panel({
 }) {
   return (
     <div
-      className={`min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex overflow-hidden max-md:w-full max-md:relative max-md:min-h-screen max-md:py-24 max-md:px-6 ${className}`}
+      className={`relative flex h-full w-[100vw] min-w-[100vw] flex-shrink-0 overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24 ${className}`}
     >
       {children}
     </div>
@@ -27,21 +27,20 @@ function Panel({
 export function ProblemStatementHero() {
   return (
     <Panel className="items-center">
-      {/* Left: heading */}
-      <div className="absolute bottom-[10vh] right-[4vw] max-w-[44vw] z-[2] max-md:static max-md:max-w-none">
-        <SVGMaskReveal>
-          <h1 className="text-[clamp(48px,6.5vw,120px)]">{data.heading}</h1>
-        </SVGMaskReveal>
-      </div>
-
-      {/* Right: evidence + evidenceDetail + conclusion */}
-      <div className="absolute top-[18vh] left-[8vw] max-w-[38vw] z-[2] max-md:static max-md:max-w-none max-md:mt-10">
+      {/* Left: evidence + evidenceDetail + conclusion */}
+      <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[38vw] max-md:static max-md:mt-10 max-md:max-w-none 2xl:left-[10vw]">
         <FadeInView delay={0.06}>
           <p>{data.evidence}</p>
         </FadeInView>
         <FadeInView delay={0.12}>
           <p className="mt-6">{data.evidenceDetail}</p>
         </FadeInView>
+      </div>
+      {/* Right: heading */}
+      <div className="absolute 3xl:right-[3vw] 4xl:right-[8vw] right-[2vw] 3xl:bottom-[10vh] 4xl:bottom-[14vh] bottom-[6vh] z-[2] max-w-[44vw] max-md:static max-md:max-w-none">
+        <SVGMaskReveal>
+          <h1 className="text-[clamp(48px,6.5vw,120px)]">{data.heading}</h1>
+        </SVGMaskReveal>
       </div>
     </Panel>
   );
@@ -51,12 +50,10 @@ export function ProblemStatementHero() {
 export function ProblemStatementCore() {
   return (
     <Panel className="items-center">
-      {/* Background with subtle glow */}
-      <div className="absolute inset-0 bg-surface-base" />
-      <div className="absolute top-[20%] left-[15%] w-[600px] h-[600px] rounded-full bg-accent-blue/[0.05] blur-[150px]" />
+      <div className="absolute top-[20%] left-[15%] h-[600px] w-[600px] rounded-full bg-accent-blue/[0.05] blur-[150px]" />
 
       {/* Top-left: accent heading + paradigm body text */}
-      <div className="absolute top-[12vh] left-[5vw] max-w-[46vw] z-[2] max-md:static max-md:max-w-none">
+      <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[46vw] max-md:static max-md:max-w-none 2xl:left-[10vw]">
         <SVGMaskReveal>
           <h1 className="text-[clamp(48px,7.5vw,120px)] text-accent-blue">
             {data.diagnosis}
@@ -72,8 +69,8 @@ export function ProblemStatementCore() {
         </FadeInView>
       </div>
 
-      {/* Bottom-right: shift quote + body text */}
-      <div className="absolute bottom-[10vh] right-[5vw] max-w-[40vw] z-[2] max-md:static max-md:max-w-none max-md:mt-10">
+      {/* Bottom-right: shift subtitle + body text */}
+      <div className="absolute 3xl:right-[3vw] 4xl:right-[8vw] right-[2vw] 3xl:bottom-[10vh] 4xl:bottom-[14vh] bottom-[6vh] z-[2] max-w-[40vw] max-md:static max-md:mt-10 max-md:max-w-none">
         <FadeInView delay={0.12}>
           <h2 className="text-text-primary">{data.shift}</h2>
         </FadeInView>

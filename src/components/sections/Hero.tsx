@@ -7,7 +7,10 @@ const words = content.hero.heading.split(" ");
 
 export function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center" style={{ height: "calc(100vh - var(--nav-height))" }}>
+    <section
+      className="flex flex-col items-center justify-center"
+      style={{ height: "calc(100vh - var(--nav-height))" }}
+    >
       {/* Content */}
       <div className="text-center max-w-5xl px-6">
         {/* Heading */}

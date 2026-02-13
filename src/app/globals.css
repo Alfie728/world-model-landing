@@ -5,6 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --breakpoint-3xl: 120rem;
+  --breakpoint-4xl: 192rem;
+
   /* Prism palette — deep navy base with blue/sky/warm accents */
   --color-surface-base: #04080f;
   --color-surface-raised: #081020;

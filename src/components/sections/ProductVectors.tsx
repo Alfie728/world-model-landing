@@ -8,7 +8,7 @@ export function ProductVectors() {
   return (
     <div className="min-w-[100vw] w-[100vw] h-full flex-shrink-0 relative flex flex-col max-md:w-full max-md:relative max-md:min-h-fit max-md:py-24 max-md:px-6">
       {/* Heading — top left */}
-      <div className="absolute top-[10vh] left-[5vw] w-fit z-[2] max-md:static">
+      <div className="absolute top-[10vh] left-[5vw] 2xl:left-[16vw] w-fit z-[2] max-md:static">
         <SVGMaskReveal className="mt-4">
           <h1 className="text-[clamp(44px,5.5vw,96px)] leading-[0.95] tracking-[-0.03em]">
             Our Products
@@ -17,7 +17,7 @@ export function ProductVectors() {
       </div>
 
       {/* Cards */}
-      <div className="absolute top-[22vh] left-[5vw] right-[5vw] bottom-[4vh] flex flex-col md:flex-row items-stretch gap-5 z-[2] max-md:static max-md:mt-6">
+      <div className="absolute top-[22vh] left-[5vw] right-[5vw] 2xl:left-[16vw] 2xl:right-[16vw] bottom-[4vh] flex flex-col md:flex-row items-stretch gap-5 z-[2] max-md:static max-md:mt-6">
         {content.productVectors.map((vector, i) => (
           <AccentCard key={vector.title} vector={vector} index={i} />
         ))}
