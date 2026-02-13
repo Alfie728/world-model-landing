@@ -13,23 +13,14 @@ const accentStyles = {
   blue: {
     border: "border-accent-blue/20 hover:border-accent-blue/40",
     glow: "hover:shadow-[0_0_80px_-15px_rgba(77,163,255,0.35)]",
-    dot: "bg-accent-blue",
-    number: "text-accent-blue",
-    overlay: "",
   },
   warm: {
     border: "border-accent-warm/20 hover:border-accent-warm/40",
     glow: "hover:shadow-[0_0_80px_-15px_rgba(212,168,130,0.35)]",
-    dot: "bg-accent-warm",
-    number: "text-accent-warm",
-    overlay: "from-[#04080F] via-[#04080F]/95",
   },
   sky: {
     border: "border-accent-sky/20 hover:border-accent-sky/40",
     glow: "hover:shadow-[0_0_80px_-15px_rgba(56,207,255,0.35)]",
-    dot: "bg-accent-sky",
-    number: "text-accent-sky",
-    overlay: "from-[#04080F] via-[#04080F]/95",
   },
 };
 
@@ -65,38 +56,15 @@ export function AccentCard({ vector, index }: AccentCardProps) {
 
       {/* Card content */}
       <div className="flex flex-col flex-1 p-7 md:p-8">
-        <span className={`font-mono text-sm tracking-widest ${styles.number}`}>
-          {vector.number}
-        </span>
+        <h3 className="text-text-primary">{vector.title}</h3>
 
-        <h3 className="font-heading mt-3 text-text-primary text-[clamp(22px,1.5vw,28px)] leading-tight">
-          {vector.title}
-        </h3>
-
-        <h6 className="font-mono tracking-wide text-text-muted mt-2 uppercase text-xs">
+        <h6 className="font-mono tracking-wide mt-2 uppercase text-xs">
           {vector.tagline}
         </h6>
 
-        <p className="text-text-secondary mt-4 text-[15px] leading-relaxed">
-          {vector.description}
-        </p>
+        <p className="mt-4 text-lg">{vector.body}</p>
 
-        <ul className="mt-4 space-y-2">
-          {vector.bullets.map((bullet) => (
-            <li key={bullet} className="flex items-start gap-3">
-              <span
-                className={`w-1.5 h-1.5 rounded-full ${styles.dot} mt-2 flex-shrink-0`}
-              />
-              <span className="text-text-secondary text-[14px] leading-relaxed">
-                {bullet}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <p className="text-text-muted mt-auto pt-4 italic text-[13px] leading-relaxed">
-          {vector.closing}
-        </p>
+        <p className="mt-4 text-lg">{vector.closing}</p>
       </div>
     </motion.div>
   );
