@@ -31,9 +31,6 @@ export function ProblemStatementHero() {
     <Panel className="items-center">
       {/* Interactive grid background */}
       <InteractiveGridPattern
-        width={60}
-        height={60}
-        squares={[30, 20]}
         className="z-[1] border-none max-md:hidden"
         style={{
           maskImage:
