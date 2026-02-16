@@ -8,17 +8,17 @@ const words = content.hero.heading.split(" ");
 export function Hero() {
   return (
     <section
-      className="flex flex-col items-center justify-center"
+      className="relative z-10 flex flex-col items-center justify-center"
       style={{ height: "calc(100vh - var(--nav-height))" }}
     >
       {/* Content */}
-      <div className="text-center max-w-5xl px-6">
+      <div className="max-w-5xl px-6 text-center">
         {/* Heading */}
         <h1 className="font-heading">
           {words.map((word, i) => (
             <motion.span
               key={`${word}-${i}`}
-              className={`inline-block mr-[0.25em] ${
+              className={`mr-[0.25em] inline-block ${
                 word === "Era" || word === "Experience"
                   ? "text-accent-blue"
                   : ""
@@ -38,7 +38,7 @@ export function Hero() {
 
         {/* Subtitle */}
         <motion.h4
-          className="mt-8 text-text-secondary font-body max-w-2xl mx-auto"
+          className="mx-auto mt-8 max-w-2xl font-body text-text-secondary"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{

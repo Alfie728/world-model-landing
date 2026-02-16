@@ -24,7 +24,7 @@ function FloatingPaths({ position }: { position: number }) {
     const cp1Y = 750 - vSpread;
 
     // CP2 pulls the curve back up toward diagnosis (top-left of panel 2)
-    const cp2X = 1100 + spread;
+    const cp2X = 850 + spread;
     const cp2Y = -550 - vSpread;
 
     // End at bottom-right of panel 2
@@ -52,16 +52,17 @@ function FloatingPaths({ position }: { position: number }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.1 + path.id * 0.03}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
+            strokeOpacity={0.06 + path.id * 0.015}
+            initial={{ pathLength: 0, pathOffset: 0, opacity: 0.4 }}
             animate={{
               pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
-              pathOffset: [0, 1, 0],
+              opacity: [0.2, 0.4, 0.2],
+              pathOffset: [0, 1],
             }}
             transition={{
-              duration: 20 + Math.random() * 10,
+              duration: 20,
               repeat: Number.POSITIVE_INFINITY,
+              delay: 3,
               ease: "linear",
             }}
           />
