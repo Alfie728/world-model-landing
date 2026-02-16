@@ -2,6 +2,7 @@
 
 import { FadeInView } from "~/components/animations/FadeInView";
 import { SVGMaskReveal } from "~/components/animations/SVGMaskReveal";
+import { BackgroundPaths } from "~/components/ui/background-paths";
 import { DotGrid } from "~/components/ui/dot-grid";
 import { InteractiveGridPattern } from "~/components/ui/interactive-grid-pattern";
 import { content } from "~/lib/content";
@@ -12,13 +13,15 @@ const data = content.problemStatement;
 function Panel({
   children,
   className = "",
+  overflowVisible = false,
 }: {
   children: React.ReactNode;
   className?: string;
+  overflowVisible?: boolean;
 }) {
   return (
     <div
-      className={`relative flex h-full w-[100vw] min-w-[100vw] flex-shrink-0 overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24 ${className}`}
+      className={`relative flex h-full w-[100vw] min-w-[100vw] flex-shrink-0 ${overflowVisible ? "" : "overflow-hidden"} max-md:relative max-md:min-h-screen max-md:w-full max-md:overflow-hidden max-md:px-6 max-md:py-24 ${className}`}
     >
       {children}
     </div>
@@ -28,9 +31,10 @@ function Panel({
 /* ─── Panel 1 — The Problem ─── */
 export function ProblemStatementHero() {
   return (
-    <Panel className="items-center">
+    <Panel className="items-center" overflowVisible>
+      <BackgroundPaths className="!w-[200vw]" />
       {/* Interactive grid background */}
-      <InteractiveGridPattern
+      {/*<InteractiveGridPattern
         className="z-[1] border-none max-md:hidden"
         style={{
           maskImage:
@@ -39,7 +43,7 @@ export function ProblemStatementHero() {
             "radial-gradient(ellipse at center, white 25%, transparent 65%)",
         }}
         squaresClassName="stroke-accent-blue/15 hover:fill-accent-blue/15 transition-all duration-100 [&:not(:hover)]:duration-1000"
-      />
+      />*/}
 
       {/* Left: evidence + evidenceDetail + conclusion */}
       <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[38vw] max-md:static max-md:mt-10 max-md:max-w-none 2xl:left-[10vw]">
@@ -65,7 +69,7 @@ export function ProblemStatementCore() {
   return (
     <Panel className="items-center">
       {/* Interactive dot grid background */}
-      <DotGrid
+      {/*<DotGrid
         dotSize={4}
         gap={18}
         baseColor="#1a3a5c"
@@ -78,7 +82,7 @@ export function ProblemStatementCore() {
           WebkitMaskImage:
             "radial-gradient(ellipse at center, white 25%, transparent 65%)",
         }}
-      />
+      />*/}
 
       {/* Top-left: accent heading + paradigm body text */}
       <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[46vw] max-md:static max-md:max-w-none 2xl:left-[10vw]">
