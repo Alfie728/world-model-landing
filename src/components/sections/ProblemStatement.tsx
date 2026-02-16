@@ -32,19 +32,7 @@ function Panel({
 export function ProblemStatementHero() {
   return (
     <Panel className="items-center" overflowVisible>
-      <BackgroundPaths className="!w-[200vw]" />
-      {/* Interactive grid background */}
-      {/*<InteractiveGridPattern
-        className="z-[1] border-none max-md:hidden"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse at center, white 25%, transparent 65%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, white 25%, transparent 65%)",
-        }}
-        squaresClassName="stroke-accent-blue/15 hover:fill-accent-blue/15 transition-all duration-100 [&:not(:hover)]:duration-1000"
-      />*/}
-
+      <BackgroundPaths className="w-[200vw]!" />
       {/* Left: evidence + evidenceDetail + conclusion */}
       <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[38vw] max-md:static max-md:mt-10 max-md:max-w-none 2xl:left-[10vw]">
         <FadeInView delay={0.06}>
@@ -68,22 +56,6 @@ export function ProblemStatementHero() {
 export function ProblemStatementCore() {
   return (
     <Panel className="items-center">
-      {/* Interactive dot grid background */}
-      {/*<DotGrid
-        dotSize={4}
-        gap={18}
-        baseColor="#1a3a5c"
-        activeColor="#4da3ff"
-        proximity={180}
-        className="z-[1] max-md:hidden"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse at center, white 25%, transparent 65%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, white 25%, transparent 65%)",
-        }}
-      />*/}
-
       {/* Top-left: accent heading + paradigm body text */}
       <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[46vw] max-md:static max-md:max-w-none 2xl:left-[10vw]">
         <div className="p-4">
