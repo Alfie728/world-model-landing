@@ -3,33 +3,34 @@
 import { motion } from "framer-motion";
 
 function FloatingPaths({ position }: { position: number }) {
-  // Paths sweep across two panels (200vw) in an S-curve:
-  //   Evidence (top-left, panel 1)  →  Heading (bottom-right, panel 1)
-  //   →  Diagnosis (top-left, panel 2)  →  Paradigm (below diagnosis, panel 2)
+  // Paths sweep across three panels (300vw) in an S-curve:
+  //   Panel 1: Evidence (top-left) → Heading (bottom-right)
+  //   Panel 2: Diagnosis (top-left) → Paradigm (below diagnosis)
+  //   Panel 3: Experience section — paths continue through and shift color
   //
-  // viewBox spans 1392×316 (two 696-wide panels).
-  // Each path `i` (0–35) is offset to create a fanning bundle.
+  // viewBox spans 2088×316 (three 696-wide panels).
+  // Each path `i` (0–31) is offset to create a fanning bundle.
   const paths = Array.from({ length: 32 }, (_, i) => {
     const spread = i * 4 * position; // horizontal fan per path
     const vSpread = i * 2; // vertical fan per path
 
     // Single smooth cubic Bezier sweeping from top-left (evidence)
-    // through the bottom-center (heading area) to upper-right (diagnosis/paradigm).
-    // No intermediate endpoints = no direction reversals = no bounces.
+    // through the bottom-center (heading area) to upper-right (diagnosis/paradigm)
+    // and continuing through the third panel.
     const startX = -200 + spread;
     const startY = -80 - vSpread;
 
     // CP1 pulls the curve down into the heading region (bottom-right of panel 1)
-    const cp1X = 400 + spread;
-    const cp1Y = 750 - vSpread;
+    const cp1X = 550 + spread;
+    const cp1Y = 800 - vSpread;
 
     // CP2 pulls the curve back up toward diagnosis (top-left of panel 2)
-    const cp2X = 850 + spread;
-    const cp2Y = -550 - vSpread;
+    const cp2X = 1800 + spread;
+    const cp2Y = -600 - vSpread;
 
-    // End at bottom-right of panel 2
-    const endX = 1650 + spread;
-    const endY = 550 - vSpread;
+    // End beyond panel 3
+    const endX = 2300 + spread;
+    const endY = 600 - vSpread;
 
     return {
       id: i,
@@ -41,16 +42,37 @@ function FloatingPaths({ position }: { position: number }) {
   return (
     <div className="pointer-events-none absolute inset-0">
       <svg
-        className="h-full w-full text-accent-warm"
-        viewBox="0 0 1392 316"
+        className="h-full w-full"
+        viewBox="0 0 2088 316"
         fill="none"
         preserveAspectRatio="none"
       >
+        <defs>
+          {/* Warm → blue crossfade using only palette colors.
+              Warm fades out (chroma drops), blue fades in (chroma rises).
+              The transition zone is narrow (~10%) so no off-palette
+              hue is visible at the low stroke opacities. */}
+          <linearGradient
+            id={`path-gradient-${position}`}
+            x1="0"
+            y1="0"
+            x2="2088"
+            y2="0"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" stopColor="oklch(0.76 0.068 68)" />
+            <stop offset="28%" stopColor="oklch(0.76 0.068 68)" />
+            <stop offset="38%" stopColor="oklch(0.55 0.02 68)" />
+            <stop offset="45%" stopColor="oklch(0.55 0.02 249)" />
+            <stop offset="55%" stopColor="oklch(0.70 0.154 249)" />
+            <stop offset="100%" stopColor="oklch(0.70 0.154 249)" />
+          </linearGradient>
+        </defs>
         {paths.map((path) => (
           <motion.path
             key={path.id}
             d={path.d}
-            stroke="currentColor"
+            stroke={`url(#path-gradient-${position})`}
             strokeWidth={path.width}
             strokeOpacity={0.06 + path.id * 0.015}
             initial={{ pathLength: 0, pathOffset: 0, opacity: 0.4 }}
@@ -60,7 +82,7 @@ function FloatingPaths({ position }: { position: number }) {
               pathOffset: [0, 1],
             }}
             transition={{
-              duration: 20,
+              duration: 36,
               repeat: Number.POSITIVE_INFINITY,
               delay: 3,
               ease: "linear",

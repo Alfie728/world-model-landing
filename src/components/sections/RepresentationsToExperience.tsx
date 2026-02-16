@@ -1,14 +1,45 @@
 "use client";
 
 import { FadeInView } from "~/components/animations/FadeInView";
+import { GlowOrb } from "~/components/animations/GlowOrb";
 import { SVGMaskReveal } from "~/components/animations/SVGMaskReveal";
+import { IconCloud } from "~/components/ui/icon-cloud";
 import { content } from "~/lib/content";
 
 const data = content.representationsToExperience;
 
+const iconCloudImages = [
+  "pytorch",
+  "tensorflow",
+  "python",
+  "numpy",
+  "opencv",
+  "unity",
+  "unrealengine",
+  "blender",
+  "threedotjs",
+  "nvidia",
+  "docker",
+  "kubernetes",
+  "linux",
+  "pandas",
+  "jupyter",
+  "postgresql",
+  "github",
+  "git",
+  "rust",
+  "cplusplus",
+].map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
+
 export function RepresentationsToExperience() {
   return (
     <div className="relative flex h-full w-screen min-w-screen shrink-0 items-center overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24">
+      {/* Icon Cloud + glow */}
+      <div className="pointer-events-none absolute bottom-[8vh] left-[24vw] z-[1] flex items-center justify-center max-md:hidden">
+        <GlowOrb color="blue" size={500} className="blur-3xl" />
+        <IconCloud images={iconCloudImages} />
+      </div>
+
       {/* Left side — heading + quote */}
       <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[55vw] max-md:static max-md:max-w-none 2xl:left-[10vw]">
         <SVGMaskReveal>
