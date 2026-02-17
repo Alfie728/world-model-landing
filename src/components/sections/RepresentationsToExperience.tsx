@@ -1,12 +1,59 @@
 "use client";
 
+import {
+  ArrowsClockwise,
+  Atom,
+  Brain,
+  ChartLine,
+  Cube,
+  GitBranch,
+  Globe,
+  Path,
+  Pulse,
+  TreeStructure,
+} from "@phosphor-icons/react";
+import { motion } from "motion/react";
 import { FadeInView } from "~/components/animations/FadeInView";
 import { GlowOrb } from "~/components/animations/GlowOrb";
 import { SVGMaskReveal } from "~/components/animations/SVGMaskReveal";
 import { IconCloud } from "~/components/ui/icon-cloud";
+import { Marquee } from "~/components/ui/marquee";
 import { content } from "~/lib/content";
 
 const data = content.representationsToExperience;
+
+const marqueeItems = [
+  { label: "state evolution", icon: Pulse },
+  { label: "action-consequence chains", icon: GitBranch },
+  { label: "spatiotemporal data", icon: Cube },
+  { label: "distributional diversity", icon: ChartLine },
+  { label: "multi-step intent", icon: TreeStructure },
+  { label: "recovery trajectories", icon: ArrowsClockwise },
+  { label: "embodied interaction", icon: Globe },
+  { label: "action-conditioned", icon: Path },
+  { label: "real-world dynamics", icon: Atom },
+  { label: "long-horizon planning", icon: Brain },
+];
+
+const firstRow = marqueeItems.slice(0, Math.ceil(marqueeItems.length / 2));
+const secondRow = marqueeItems.slice(Math.ceil(marqueeItems.length / 2));
+
+function MarqueeChip({
+  label,
+  icon: Icon,
+}: {
+  label: string;
+  icon: React.ElementType;
+}) {
+  return (
+    <figure className="flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 backdrop-blur-md">
+      <Icon className="h-4 w-4 shrink-0 text-accent-blue" weight="bold" />
+      <figcaption className="whitespace-nowrap text-sm text-text-secondary">
+        {label}
+      </figcaption>
+    </figure>
+  );
+}
 
 const iconCloudImages = [
   "pytorch",
@@ -34,11 +81,26 @@ const iconCloudImages = [
 export function RepresentationsToExperience() {
   return (
     <div className="relative flex h-full w-screen min-w-screen shrink-0 items-center overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24">
-      {/* Icon Cloud + glow */}
-      <div className="pointer-events-none absolute bottom-[8vh] left-[24vw] z-[1] flex items-center justify-center max-md:hidden">
-        <GlowOrb color="blue" size={500} className="blur-3xl" />
-        <IconCloud images={iconCloudImages} />
-      </div>
+      {/* Icon Cloud + glow — shared drift keeps them locked together */}
+      <motion.div
+        className="pointer-events-none absolute top-[16vh] right-[8vw] z-[1] max-md:hidden"
+        animate={{
+          x: [0, 40, -30, 15, 0],
+          y: [0, -30, 20, -10, 0],
+        }}
+        transition={{
+          duration: 36,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
+      >
+        <div className="relative flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <GlowOrb color="blue" size={400} className="relative" />
+          </div>
+          <IconCloud images={iconCloudImages} />
+        </div>
+      </motion.div>
 
       {/* Left side — heading + quote */}
       <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[55vw] max-md:static max-md:max-w-none 2xl:left-[10vw]">
@@ -54,6 +116,28 @@ export function RepresentationsToExperience() {
             &ldquo;{data.quote}&rdquo;
           </blockquote>
         </FadeInView>
+      </div>
+
+      {/* Bottom-left: scrolling keyword marquee */}
+      <div className="pointer-events-none absolute bottom-[16vh] left-[8vw] z-[1] flex w-[45vw] flex-col gap-3 overflow-hidden max-md:hidden">
+        <Marquee pauseOnHover className="[--duration:35s] [--gap:0.75rem]">
+          {firstRow.map((item) => (
+            <MarqueeChip key={item.label} {...item} />
+          ))}
+        </Marquee>
+        <Marquee
+          reverse
+          pauseOnHover
+          className="[--duration:35s] [--gap:0.75rem]"
+        >
+          {secondRow.map((item) => (
+            <MarqueeChip key={item.label} {...item} />
+          ))}
+        </Marquee>
+
+        {/* Gradient edge masks */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-surface-base to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-surface-base to-transparent" />
       </div>
 
       {/* Body — bottom right */}

@@ -9,25 +9,24 @@ interface GlowOrbProps {
 }
 
 const colorMap = {
-  blue: "bg-accent-blue/15",
-  warm: "bg-accent-warm/10",
-  sky: "bg-accent-sky/10",
+  blue: "bg-accent-blue/40",
+  warm: "bg-accent-warm/30",
+  sky: "bg-accent-sky/30",
 };
 
 export function GlowOrb({ color, size = 400, className = "" }: GlowOrbProps) {
   return (
     <motion.div
-      className={`absolute rounded-full ${colorMap[color]} pointer-events-none ${className}`}
-      style={{ width: size, height: size }}
+      className={`absolute rounded-full ${colorMap[color]} pointer-events-none blur-2xl ${className}`}
+      style={{ width: size, height: size, willChange: "transform, opacity" }}
       animate={{
-        x: [0, 30, -20, 0],
-        y: [0, -20, 10, 0],
-        scale: [1, 1.1, 0.95, 1],
+        scale: [1, 1.12, 0.92, 1.06, 1],
+        opacity: [0.6, 1, 0.5, 0.8, 0.6],
       }}
       transition={{
-        duration: 20,
+        duration: 36,
         repeat: Number.POSITIVE_INFINITY,
-        ease: "linear",
+        ease: "easeInOut",
       }}
       aria-hidden="true"
     />
