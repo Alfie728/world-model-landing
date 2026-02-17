@@ -83,7 +83,7 @@ export function RepresentationsToExperience() {
     <div className="relative flex h-full w-screen min-w-screen shrink-0 items-center overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24">
       {/* Icon Cloud + glow — shared drift keeps them locked together */}
       <motion.div
-        className="pointer-events-none absolute top-[16vh] right-[8vw] z-[1] max-md:hidden"
+        className="pointer-events-none absolute top-[16vh] right-[10vw] z-[1] max-md:hidden"
         animate={{
           x: [0, 40, -30, 15, 0],
           y: [0, -30, 20, -10, 0],
@@ -119,7 +119,15 @@ export function RepresentationsToExperience() {
       </div>
 
       {/* Bottom-left: scrolling keyword marquee */}
-      <div className="pointer-events-none absolute bottom-[16vh] left-[8vw] z-[1] flex w-[45vw] flex-col gap-3 overflow-hidden max-md:hidden">
+      <div
+        className="pointer-events-none absolute bottom-[16vh] left-[8vw] z-[1] flex w-[44vw] flex-col gap-3 overflow-hidden max-md:hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0%, white 12%, white 88%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, white 12%, white 88%, transparent 100%)",
+        }}
+      >
         <Marquee pauseOnHover className="[--duration:35s] [--gap:0.75rem]">
           {firstRow.map((item) => (
             <MarqueeChip key={item.label} {...item} />
@@ -134,10 +142,6 @@ export function RepresentationsToExperience() {
             <MarqueeChip key={item.label} {...item} />
           ))}
         </Marquee>
-
-        {/* Gradient edge masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-surface-base to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-surface-base to-transparent" />
       </div>
 
       {/* Body — bottom right */}
