@@ -21,7 +21,7 @@ export function OurApproach() {
       </div>
 
       {/* Content — normal flow */}
-      <div className="relative z-[2] 3xl:mt-[18vh] 4xl:mt-[20vh] mt-[16vh] 3xl:ml-[8vw] 4xl:ml-[10vw] ml-[8vw] max-w-[42vw] max-md:mt-0 max-md:ml-0 max-md:max-w-none 2xl:ml-[10vw]">
+      <div className="relative z-[2] 3xl:mt-[18vh] 4xl:mt-[20vh] mt-[16vh] 3xl:ml-[8vw] 4xl:ml-[10vw] ml-[8vw] max-w-[45vw] max-md:mt-0 max-md:ml-0 max-md:max-w-none 2xl:ml-[10vw]">
         <div className="p-5 max-md:p-0">
           <SVGMaskReveal>
             <h1>{data.heading}</h1>
