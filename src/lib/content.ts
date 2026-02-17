@@ -54,6 +54,7 @@ export const content = {
       accent: "blue" as const,
       image:
         "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80&auto=format",
+      video: "https://assets.mixkit.co/videos/43527/43527-720.mp4",
     },
     {
       title: "Robotics Egocentric Data",
@@ -64,6 +65,7 @@ export const content = {
       accent: "warm" as const,
       image:
         "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format",
+      video: "https://assets.mixkit.co/videos/47257/47257-720.mp4",
     },
     {
       title: "Hardware Glasses",
@@ -74,6 +76,7 @@ export const content = {
       accent: "sky" as const,
       image:
         "https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=800&q=80&auto=format",
+      video: "https://assets.mixkit.co/videos/51214/51214-720.mp4",
     },
   ],
 
