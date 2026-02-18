@@ -21,7 +21,7 @@ export function GlowOrb({ color, size = 400, className = "" }: GlowOrbProps) {
       style={{ width: size, height: size, willChange: "transform, opacity" }}
       animate={{
         scale: [1, 1.12, 0.92, 1.06, 1],
-        opacity: [0.6, 1, 0.5, 0.8, 0.6],
+        opacity: [0.6, 1, 0, 0, 0.6],
       }}
       transition={{
         duration: 36,

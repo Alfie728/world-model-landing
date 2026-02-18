@@ -17,6 +17,7 @@ const accentStyles = {
       "linear-gradient(to right, transparent, rgba(77,163,255,0.6), transparent)",
     lineShadow: "0 0 10px rgba(77,163,255,0.3)",
     indexColor: "text-accent-blue/30",
+    bulletColor: "bg-accent-blue/60",
   },
   warm: {
     border: "border-accent-warm/20 hover:border-accent-warm/40",
@@ -25,6 +26,7 @@ const accentStyles = {
       "linear-gradient(to right, transparent, rgba(212,168,130,0.6), transparent)",
     lineShadow: "0 0 10px rgba(212,168,130,0.3)",
     indexColor: "text-accent-warm/30",
+    bulletColor: "bg-accent-warm/60",
   },
   sky: {
     border: "border-accent-sky/20 hover:border-accent-sky/40",
@@ -33,6 +35,7 @@ const accentStyles = {
       "linear-gradient(to right, transparent, rgba(56,207,255,0.6), transparent)",
     lineShadow: "0 0 10px rgba(56,207,255,0.3)",
     indexColor: "text-accent-sky/30",
+    bulletColor: "bg-accent-sky/60",
   },
 };
 
@@ -79,7 +82,7 @@ export function AccentCard({ vector, index }: AccentCardProps) {
       }}
     >
       {/* Card video — responsive height with hover zoom */}
-      <div className="relative 3xl:h-[200px] 4xl:h-[240px] h-[140px] w-full flex-shrink-0 overflow-hidden">
+      <div className="relative 3xl:h-[280px] 4xl:h-[340px] h-[200px] w-full flex-shrink-0 overflow-hidden">
         {/* Glowing accent top-border line */}
         <div
           className="absolute top-0 right-0 left-0 z-10 h-px"
@@ -120,11 +123,27 @@ export function AccentCard({ vector, index }: AccentCardProps) {
           {vector.tagline}
         </h6>
 
-        <h3 className="3xl:mt-3 mt-2 text-text-primary">{vector.title}</h3>
+        <h2 className="3xl:mt-3 mt-2 font-heading font-bold text-text-primary leading-tight">
+          {vector.title}
+        </h2>
 
-        <p className="3xl:mt-4 mt-3">{vector.body}</p>
+        {/* Bullet points */}
+        <ul className="3xl:mt-4 mt-3 space-y-2">
+          {vector.bullets.map((bullet) => (
+            <li key={bullet} className="flex items-start gap-2.5">
+              <span
+                className={`mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full ${styles.bulletColor}`}
+              />
+              <span className="text-text-secondary" style={{ fontSize: "clamp(14px, 1.1vw, 20px)", lineHeight: 1.5 }}>
+                {bullet}
+              </span>
+            </li>
+          ))}
+        </ul>
 
-        <p className="3xl:mt-4 mt-3 text-text-muted">{vector.closing}</p>
+        <p className="3xl:mt-4 mt-3 text-text-muted" style={{ fontSize: "clamp(14px, 1.1vw, 20px)" }}>
+          {vector.closing}
+        </p>
       </div>
     </motion.div>
   );

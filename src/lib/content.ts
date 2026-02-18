@@ -1,9 +1,10 @@
 export const content = {
   hero: {
     badge: "World Model Research",
-    heading: "Planet-Scale Data for the Era of Experience",
+    heading: "Planet-Scale Data for the",
+    carouselWords: ["Real World", "World Models", "Robotics"],
     subtitle:
-      "Modern AI systems reason well in text and images, but they struggle when deployed in the real world. Agents fail on long-horizon tasks. Robots behave brittly outside narrow distributions.",
+      "We focus on real-world AI: robotics and world models. Today\u2019s systems degrade under distribution shift, long-horizon tasks, and real-world uncertainty.",
   },
 
   problemStatement: {
@@ -47,10 +48,16 @@ export const content = {
   productVectors: [
     {
       title: "World Model Gaming Data",
-      tagline: "Spatiotemporal experience for learning dynamics",
-      body: "We build large-scale, action-labeled gameplay datasets designed to train world models and long-horizon agents. These datasets emphasize temporal continuity and state transitions, explicit action and control signals, diverse environments and objectives, and long trajectories rather than short clips.",
-      closing:
-        "This data is suited for training models that must predict how environments evolve, plan over time, and generalize beyond scripted settings.",
+      tagline: "Action-labeled, long-horizon gameplay",
+      bullets: [
+        "FPV 1080p, 30\u201360 FPS",
+        "Native action + control logs",
+        "5\u2013120+ minute trajectories",
+        "Diverse environment coverage",
+        "Visual Understanding",
+        "IP Rights",
+      ],
+      closing: "Built for world models and long-horizon agents.",
       accent: "blue" as const,
       image:
         "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80&auto=format",
@@ -58,21 +65,31 @@ export const content = {
     },
     {
       title: "Robotics Egocentric Data",
-      tagline: "From VLAs to world-aware models",
-      body: "Robotics is moving beyond vision-language-action models that map perception directly to control. The field is increasingly shifting toward world-aware models that reason over latent state, dynamics, and future outcomes\u2014requiring continuous egocentric experience, action-conditioned state evolution, long-horizon task execution and recovery, and data suitable for learning internal world representations.",
+      tagline: "Continuous first-person task execution",
+      bullets: [
+        "1080p head-mounted FPV",
+        "Hands-in-frame manipulation",
+        "Multi-step real-world tasks",
+        "Action-aligned timestamps",
+      ],
       closing:
-        "We collect structured egocentric robotics data designed for this transition, captured from real humans performing real tasks, with annotations aligned to world-model and policy training rather than short-horizon imitation alone.",
+        "Designed for embodied and world-aware robotics models.",
       accent: "warm" as const,
       image:
         "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format",
       video: "https://assets.mixkit.co/videos/47257/47257-720.mp4",
     },
     {
-      title: "Hardware Glasses",
-      tagline: "Owning the sensor unlocks the dataset",
-      body: "Experience-centric data requires consistency, duration, and scale that off-the-shelf hardware does not reliably provide. We design for long-duration high-quality capture, sensor configurations aligned with learning objectives, and repeatability across environments and contributors.",
+      title: "Custom Capture Hardware Glasses",
+      tagline: "Training-grade sensor infrastructure",
+      bullets: [
+        "Stable 1080p continuous capture",
+        "Fixed, repeatable camera geometry",
+        "Long-duration battery",
+        "Synced logging + upload",
+      ],
       closing:
-        "Hardware is not a side project. It is a prerequisite for building datasets that support world models and embodied learning at scale.",
+        "Consistent data at scale for real-world AI.",
       accent: "sky" as const,
       image:
         "https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=800&q=80&auto=format",
