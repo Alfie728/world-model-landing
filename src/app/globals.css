@@ -226,17 +226,22 @@ body {
   color: #04080f;
 }
 
-::-webkit-scrollbar {
-  width: 3px;
+html,
+body,
+.lenis,
+.lenis-smooth {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-text-muted);
-  border-radius: 2px;
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.lenis::-webkit-scrollbar,
+.lenis-smooth::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
