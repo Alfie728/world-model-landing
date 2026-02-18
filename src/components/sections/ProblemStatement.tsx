@@ -68,33 +68,25 @@ export function ProblemStatementCore() {
             </h1>
           </SVGMaskReveal>
           <FadeInView delay={0.06}>
-            <p className="mt-8 max-w-[40vw] max-md:max-w-none">
-              {data.paradigm}
-            </p>
+            <p className="mt-8">{data.paradigm}</p>
           </FadeInView>
           <FadeInView delay={0.1}>
-            <p className="mt-5 max-w-[38vw] max-md:max-w-none">
-              {data.paradigmDetail}
-            </p>
+            <p className="mt-5">{data.paradigmDetail}</p>
           </FadeInView>
         </div>
       </div>
 
       {/* Bottom-right: shift subtitle + body text */}
-      <div className="absolute 3xl:right-[3vw] 4xl:right-[8vw] right-[2vw] 3xl:bottom-[10vh] 4xl:bottom-[14vh] bottom-[6vh] z-[2] max-w-[40vw] max-md:static max-md:mt-10 max-md:max-w-none">
+      <div className="absolute 3xl:right-[3vw] 4xl:right-[6vw] right-0 3xl:bottom-[10vh] 4xl:bottom-[14vh] bottom-[6vh] z-[2] max-w-[45vw] max-md:mt-10 max-md:max-w-none">
         <div className="p-4">
           <FadeInView delay={0.12}>
             <h2 className="text-text-primary">{data.shift}</h2>
           </FadeInView>
           <FadeInView delay={0.16}>
-            <p className="mt-6 max-w-[36vw] max-md:max-w-none">
-              {data.shiftDetail}
-            </p>
+            <p className="mt-6">{data.shiftDetail}</p>
           </FadeInView>
           <FadeInView delay={0.2}>
-            <p className="mt-5 max-w-[36vw] max-md:max-w-none">
-              {data.mission}
-            </p>
+            <p className="mt-5">{data.mission}</p>
           </FadeInView>
         </div>
       </div>
