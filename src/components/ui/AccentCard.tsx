@@ -82,7 +82,15 @@ export function AccentCard({ vector, index }: AccentCardProps) {
       }}
     >
       {/* Card video — responsive height with hover zoom */}
-      <div className="relative 3xl:h-[280px] 4xl:h-[340px] h-[200px] w-full flex-shrink-0 overflow-hidden">
+      <div
+        className="relative 3xl:h-[280px] 4xl:h-[340px] h-[200px] w-full flex-shrink-0 overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to bottom, rgb(8, 16, 32) 12%, rgba(8, 16, 32, 0.5), transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgb(8, 16, 32) 12%, rgba(8, 16, 32, 0.5), transparent)",
+        }}
+      >
         {/* Glowing accent top-border line */}
         <div
           className="absolute top-0 right-0 left-0 z-10 h-px"
@@ -109,9 +117,6 @@ export function AccentCard({ vector, index }: AccentCardProps) {
           poster={vector.image}
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
-
-        {/* Gradient overlay — fades video into card body */}
-        <div className="absolute inset-0 bg-linear-to-t from-surface-raised via-[12%] via-surface-raised/80 to-transparent" />
       </div>
 
       {/* Card content — scrollable overflow */}
@@ -123,7 +128,7 @@ export function AccentCard({ vector, index }: AccentCardProps) {
           {vector.tagline}
         </h6>
 
-        <h2 className="3xl:mt-3 mt-2 font-heading font-bold text-text-primary leading-tight">
+        <h2 className="3xl:mt-3 mt-2 font-bold font-heading text-text-primary leading-tight">
           {vector.title}
         </h2>
 
@@ -134,14 +139,23 @@ export function AccentCard({ vector, index }: AccentCardProps) {
               <span
                 className={`mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full ${styles.bulletColor}`}
               />
-              <span className="text-text-secondary" style={{ fontSize: "clamp(14px, 1.1vw, 20px)", lineHeight: 1.5 }}>
+              <span
+                className="text-text-secondary"
+                style={{
+                  fontSize: "clamp(14px, 1.1vw, 20px)",
+                  lineHeight: 1.5,
+                }}
+              >
                 {bullet}
               </span>
             </li>
           ))}
         </ul>
 
-        <p className="3xl:mt-4 mt-3 text-text-muted" style={{ fontSize: "clamp(14px, 1.1vw, 20px)" }}>
+        <p
+          className="3xl:mt-4 mt-3 text-text-muted"
+          style={{ fontSize: "clamp(14px, 1.1vw, 20px)" }}
+        >
           {vector.closing}
         </p>
       </div>
