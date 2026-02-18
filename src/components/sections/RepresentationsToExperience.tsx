@@ -99,12 +99,12 @@ export function RepresentationsToExperience() {
           ease: "easeInOut",
         }}
       >
-        <div className="relative flex items-center justify-center">
+        {/*<div className="relative flex items-center justify-center">
           <div className="absolute inset-0 flex items-center justify-center">
             <GlowOrb color="blue" size={400} className="relative" />
           </div>
           <IconCloud images={iconCloudImages} />
-        </div>
+        </div>*/}
       </motion.div>
 
       {/* Left side — heading + quote */}
