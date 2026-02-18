@@ -8,18 +8,16 @@ import { content } from "~/lib/content";
 const data = content.researchLab;
 
 const trailImages = [
-  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80&auto=format",
-  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80&auto=format",
   "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80&auto=format",
   "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&auto=format",
   "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80&auto=format",
-  "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80&auto=format",
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80&auto=format",
   "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80&auto=format",
-  "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&q=80&auto=format",
   "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80&auto=format",
   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80&auto=format",
-  "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&q=80&auto=format",
+  "https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?w=600&q=80&auto=format",
+  "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&q=80&auto=format",
+  "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&q=80&auto=format",
+  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80&auto=format",
 ];
 
 export function ResearchLab() {

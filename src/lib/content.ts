@@ -72,8 +72,7 @@ export const content = {
         "Multi-step real-world tasks",
         "Action-aligned timestamps",
       ],
-      closing:
-        "Designed for embodied and world-aware robotics models.",
+      closing: "Designed for embodied and world-aware robotics models.",
       accent: "warm" as const,
       image:
         "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format",
@@ -88,8 +87,7 @@ export const content = {
         "Long-duration battery",
         "Synced logging + upload",
       ],
-      closing:
-        "Consistent data at scale for real-world AI.",
+      closing: "Consistent data at scale for real-world AI.",
       accent: "sky" as const,
       image:
         "https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=800&q=80&auto=format",
