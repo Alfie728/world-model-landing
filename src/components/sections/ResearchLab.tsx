@@ -50,7 +50,7 @@ export function ResearchLab() {
       </div>
 
       {/* Body — bottom right */}
-      <div className="pointer-events-none absolute 3xl:right-[3vw] 4xl:right-[8vw] right-[2vw] 3xl:bottom-[10vh] 4xl:bottom-[14vh] bottom-[6vh] z-[2] max-w-[36vw] max-md:pointer-events-auto max-md:static max-md:mt-8 max-md:max-w-none">
+      <div className="pointer-events-none absolute 3xl:right-[6vw] 4xl:right-[8vw] right-[4vw] 3xl:bottom-[10vh] 4xl:bottom-[14vh] bottom-[6vh] z-[2] max-w-[36vw] max-md:pointer-events-auto max-md:static max-md:mt-8 max-md:max-w-none">
         <FadeInView>
           <p>{data.body}</p>
         </FadeInView>

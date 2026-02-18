@@ -110,6 +110,7 @@ body {
     letter-spacing: -0.03em;
     line-height: 0.95;
     font-weight: 700;
+    text-wrap: balance;
   }
 
   h2,
@@ -119,6 +120,7 @@ body {
     font-weight: 300;
     line-height: 1.3;
     letter-spacing: -0.01em;
+    text-wrap: balance;
   }
 
   h3,
@@ -127,6 +129,7 @@ body {
     font-weight: 500;
     font-size: clamp(20px, 1.5vw, 28px);
     line-height: 1.25;
+    text-wrap: balance;
   }
 
   h4,
@@ -135,6 +138,7 @@ body {
     font-size: 22px;
     line-height: 30px;
     font-weight: 300;
+    text-wrap: balance;
   }
 
   h5,
@@ -143,6 +147,7 @@ body {
     font-weight: 300;
     font-size: 18px;
     line-height: 28px;
+    text-wrap: balance;
   }
 
   h6,
@@ -151,6 +156,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
+    text-wrap: balance;
   }
 
   blockquote {
@@ -160,12 +166,14 @@ body {
     font-style: italic;
     font-family: var(--font-serif);
     letter-spacing: 0;
+    text-wrap: balance;
   }
 
   p {
     font-size: clamp(17px, 1.3vw, 24px);
     line-height: 1.6;
     color: var(--color-text-secondary);
+    text-wrap: balance;
   }
 
   @media (min-width: 192rem) {
@@ -285,19 +293,19 @@ body {
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
 }
