@@ -1,6 +1,6 @@
 export const content = {
   hero: {
-    badge: "World Model Research",
+    badge: "Arcterra Research",
     heading: "Planet-Scale Data for the",
     carouselWords: ["Real World", "World Models", "Robotics"],
     subtitle:
@@ -25,7 +25,7 @@ export const content = {
     shiftDetail:
       "We are entering an era where models must learn from interaction, not description. The next generation of foundation models will be trained not on what the world looks like, but on how it behaves\u2014action by action, state by state.",
     mission:
-      "We are a real-world data research lab building the datasets, environments, and infrastructure required for this shift.",
+      "Arcterra is a real-world data research lab building the datasets, environments, and infrastructure required for this shift.",
   },
 
   representationsToExperience: {

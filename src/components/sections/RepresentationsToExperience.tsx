@@ -125,7 +125,7 @@ export function RepresentationsToExperience() {
         {/* Benchmarks & Evals trigger */}
         <FadeInView delay={0.25} className="mt-6">
           <Link
-            href="https://midcentury-home.vercel.app/harmoniq"
+            href="https://www.arcterra.ai/benchmarks"
             type="button"
             className="group inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 backdrop-blur-md transition-all hover:border-accent-blue/30 hover:bg-white/[0.08]"
           >

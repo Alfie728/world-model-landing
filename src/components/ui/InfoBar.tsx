@@ -28,14 +28,14 @@ export function InfoBar() {
         className="text-text-muted tracking-widest uppercase"
         style={{ fontSize: "13px", fontWeight: 400, letterSpacing: "0.08em" }}
       >
-        Frontier AI Research Lab
+        Arcterra Labs
       </h6>
 
       <h6
         className="text-text-muted hidden md:block"
         style={{ fontSize: "13px", fontWeight: 300 }}
       >
-        Building World Models
+        Real-World AI Research
       </h6>
 
       <div className="flex items-center gap-3">

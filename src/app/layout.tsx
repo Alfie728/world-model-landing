@@ -4,9 +4,10 @@ import { instrumentSerif, inter, jetbrainsMono, syne } from "~/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "World Model | Planet-Scale Data for the Era of Experience",
+  title: "Arcterra | Planet-Scale Data for the Real World",
   description:
-    "A frontier AI research lab building world model data, robotics data, and custom hardware for embodied intelligence.",
+    "A real-world AI research lab building world model data, robotics data, and custom capture hardware for embodied intelligence.",
+  metadataBase: new URL("https://www.arcterra.ai"),
 };
 
 export default function RootLayout({

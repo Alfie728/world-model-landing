@@ -12,7 +12,7 @@ export function Navbar() {
       transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="font-heading text-sm font-semibold tracking-wide text-text-primary uppercase">
-        World Model
+        Arcterra
       </div>
       <div className="flex items-center gap-8">
         <a
