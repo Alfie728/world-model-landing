@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-import { useCallback, useEffect, useRef } from "react";
+import { m, useInView } from "motion/react";
+import { useEffect, useRef } from "react";
 import type { ProductVector } from "~/lib/content";
 
 interface AccentCardProps {
@@ -42,7 +42,6 @@ const accentStyles = {
 export function AccentCard({ vector, index }: AccentCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
   const isVisible = useInView(ref, { amount: 0.3 });
   const styles = accentStyles[vector.accent];
@@ -57,22 +56,10 @@ export function AccentCard({ vector, index }: AccentCardProps) {
     }
   }, [isVisible]);
 
-  // Always stop wheel events from reaching the horizontal scroll container
-  const handleWheel = useCallback((e: WheelEvent) => {
-    e.stopPropagation();
-  }, []);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.addEventListener("wheel", handleWheel, { passive: true });
-    return () => el.removeEventListener("wheel", handleWheel);
-  }, [handleWheel]);
-
   return (
-    <motion.div
+    <m.div
       ref={ref}
-      className={`group flex h-full flex-col rounded-2xl border ${styles.border} ${styles.glow} cursor-pointer overflow-hidden bg-surface-raised/50 backdrop-blur-sm transition-[border-color,box-shadow] duration-500 will-change-transform`}
+      className={`group flex h-full flex-col rounded-2xl border ${styles.border} ${styles.glow} cursor-pointer overflow-hidden bg-surface-raised/50 backdrop-blur-sm transition-[border-color,box-shadow] duration-500`}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{
@@ -120,10 +107,7 @@ export function AccentCard({ vector, index }: AccentCardProps) {
       </div>
 
       {/* Card content — scrollable overflow */}
-      <div
-        ref={scrollRef}
-        className="flex min-h-0 flex-1 flex-col overflow-y-auto 3xl:px-7 4xl:px-8 px-5 pt-2 3xl:pb-7 4xl:pb-8 pb-5"
-      >
+      <div className="flex min-h-0 flex-1 flex-col overflow-y-hidden 3xl:px-7 4xl:px-8 px-5 pt-2 3xl:pb-7 4xl:pb-8 pb-5">
         <h6 className="font-mono text-text-muted text-xs uppercase tracking-widest">
           {vector.tagline}
         </h6>
@@ -159,6 +143,6 @@ export function AccentCard({ vector, index }: AccentCardProps) {
           {vector.closing}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

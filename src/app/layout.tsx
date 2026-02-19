@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MotionProvider } from "~/components/providers/MotionProvider";
 import { SmoothScroll } from "~/components/providers/SmoothScroll";
 import { instrumentSerif, inter, jetbrainsMono, syne } from "~/lib/fonts";
 import "./globals.css";
@@ -20,7 +21,9 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} bg-surface-base text-text-primary antialiased`}
       >
-        <SmoothScroll>{children}</SmoothScroll>
+        <MotionProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </MotionProvider>
       </body>
     </html>
   );

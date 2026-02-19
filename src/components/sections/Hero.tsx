@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { content } from "~/lib/content";
 
@@ -29,7 +29,7 @@ export function Hero() {
         {/* Heading — static part */}
         <h1 className="font-heading">
           {words.map((word, i) => (
-            <motion.span
+            <m.span
               key={`${word}-${i}`}
               className="mr-[0.25em] inline-block"
               initial={{ opacity: 0, y: 40 }}
@@ -41,11 +41,11 @@ export function Hero() {
               }}
             >
               {word}
-            </motion.span>
+            </m.span>
           ))}
 
           {/* Carousel word — always on its own line */}
-          <motion.span
+          <m.span
             className="relative block overflow-hidden"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function Hero() {
             }}
           >
             <AnimatePresence mode="wait">
-              <motion.span
+              <m.span
                 key={carouselWords[currentIndex]}
                 className="block text-accent-blue"
                 initial={{ y: "100%", opacity: 0 }}
@@ -68,13 +68,13 @@ export function Hero() {
                 }}
               >
                 {carouselWords[currentIndex]}
-              </motion.span>
+              </m.span>
             </AnimatePresence>
-          </motion.span>
+          </m.span>
         </h1>
 
         {/* Subtitle */}
-        <motion.h4
+        <m.h4
           className="mx-auto mt-8 max-w-2xl font-body text-text-secondary"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export function Hero() {
           }}
         >
           {content.hero.subtitle}
-        </motion.h4>
+        </m.h4>
       </div>
     </section>
   );

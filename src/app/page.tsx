@@ -1,6 +1,4 @@
-"use client";
-
-import LiquidEther from "~/components/LiquidEther";
+import type { Metadata } from "next";
 import Prism from "~/components/Prism";
 import { Footer } from "~/components/sections/Footer";
 import { Hero } from "~/components/sections/Hero";
@@ -16,6 +14,13 @@ import { ResearchLab } from "~/components/sections/ResearchLab";
 import { WhyThisMatters } from "~/components/sections/WhyThisMatters";
 import { InfoBar } from "~/components/ui/InfoBar";
 import { Navbar } from "~/components/ui/Navbar";
+
+export const metadata: Metadata = {
+  title: "Arcterra | Planet-Scale Data for the Real World",
+  description:
+    "A real-world AI research lab building world model data, robotics data, and custom capture hardware for embodied intelligence.",
+};
+
 export default function Home() {
   return (
     <>

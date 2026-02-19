@@ -13,15 +13,11 @@ import {
   Path,
   Pulse,
   TreeStructure,
-  X,
 } from "@phosphor-icons/react";
-import { AnimatePresence, motion } from "motion/react";
+import { m } from "motion/react";
 import Link from "next/link";
-import { useState } from "react";
 import { FadeInView } from "~/components/animations/FadeInView";
-import { GlowOrb } from "~/components/animations/GlowOrb";
 import { SVGMaskReveal } from "~/components/animations/SVGMaskReveal";
-import { IconCloud } from "~/components/ui/icon-cloud";
 import { Marquee } from "~/components/ui/marquee";
 import { content } from "~/lib/content";
 
@@ -60,34 +56,11 @@ function MarqueeChip({
   );
 }
 
-const iconCloudImages = [
-  "pytorch",
-  "tensorflow",
-  "python",
-  "numpy",
-  "opencv",
-  "unity",
-  "unrealengine",
-  "blender",
-  "threedotjs",
-  "nvidia",
-  "docker",
-  "kubernetes",
-  "linux",
-  "pandas",
-  "jupyter",
-  "postgresql",
-  "github",
-  "git",
-  "rust",
-  "cplusplus",
-].map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
-
 export function RepresentationsToExperience() {
   return (
     <div className="relative flex h-full w-screen min-w-screen shrink-0 items-center overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24">
       {/* Icon Cloud + glow — shared drift keeps them locked together */}
-      <motion.div
+      <m.div
         className="pointer-events-none absolute top-[16vh] right-[10vw] z-[1] max-md:hidden"
         animate={{
           x: [0, 40, -30, 15, 0],
@@ -105,7 +78,7 @@ export function RepresentationsToExperience() {
           </div>
           <IconCloud images={iconCloudImages} />
         </div>*/}
-      </motion.div>
+      </m.div>
 
       {/* Left side — heading + quote */}
       <div className="absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-w-[55vw] max-md:static max-md:max-w-none 2xl:left-[10vw]">

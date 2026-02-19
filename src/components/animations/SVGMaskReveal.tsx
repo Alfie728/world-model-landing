@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-import { useRef, useId, type ReactNode } from "react";
+import { m, useInView } from "motion/react";
+import { type ReactNode, useId, useRef } from "react";
 
 interface SVGMaskRevealProps {
   children: ReactNode;
@@ -22,28 +22,6 @@ export function SVGMaskReveal({
   const isInView = useInView(ref, { once: true, margin: "-10%" });
   const clipId = useId();
 
-  const getInitial = () => {
-    switch (direction) {
-      case "right":
-        return { x: "100%", width: "0%" };
-      case "center":
-        return { x: "50%", width: "0%" };
-      default:
-        return { x: "0%", width: "0%" };
-    }
-  };
-
-  const getAnimate = () => {
-    switch (direction) {
-      case "right":
-        return { x: "0%", width: "100%" };
-      case "center":
-        return { x: "0%", width: "100%" };
-      default:
-        return { x: "0%", width: "100%" };
-    }
-  };
-
   return (
     <div ref={ref} className={className} style={{ position: "relative" }}>
       <svg
@@ -57,7 +35,7 @@ export function SVGMaskReveal({
       >
         <defs>
           <clipPath id={clipId} clipPathUnits="objectBoundingBox">
-            <motion.rect
+            <m.rect
               x="0"
               y="0"
               height="1"

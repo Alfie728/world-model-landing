@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "motion/react";
 
 function FloatingPaths({ position }: { position: number }) {
   // Paths sweep across three panels (300vw) in an S-curve:
@@ -69,7 +69,7 @@ function FloatingPaths({ position }: { position: number }) {
           </linearGradient>
         </defs>
         {paths.map((path) => (
-          <motion.path
+          <m.path
             key={path.id}
             d={path.d}
             stroke={`url(#path-gradient-${position})`}
@@ -121,7 +121,7 @@ export function BackgroundPaths({
       </div>
 
       <div className="container relative z-10 mx-auto px-4 text-center md:px-6">
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
@@ -131,7 +131,7 @@ export function BackgroundPaths({
             {words.map((word, wordIndex) => (
               <span key={wordIndex} className="mr-4 inline-block last:mr-0">
                 {word.split("").map((letter, letterIndex) => (
-                  <motion.span
+                  <m.span
                     key={`${wordIndex}-${letterIndex}`}
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -144,12 +144,12 @@ export function BackgroundPaths({
                     className="inline-block bg-gradient-to-r from-neutral-900 to-neutral-700/80 bg-clip-text text-transparent dark:from-white dark:to-white/80"
                   >
                     {letter}
-                  </motion.span>
+                  </m.span>
                 ))}
               </span>
             ))}
           </h1>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );

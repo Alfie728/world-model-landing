@@ -1,16 +1,16 @@
 "use client";
 
-import { SVGMaskReveal } from "~/components/animations/SVGMaskReveal";
 import { FadeInView } from "~/components/animations/FadeInView";
+import { SVGMaskReveal } from "~/components/animations/SVGMaskReveal";
 import { content } from "~/lib/content";
 
 const data = content.whyThisMatters;
 
 export function WhyThisMatters() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-8 text-center py-24">
+    <section className="flex min-h-screen flex-col items-center justify-center px-8 py-24 text-center">
       <SVGMaskReveal>
-        <h1 className="font-heading max-w-4xl">
+        <h1 className="max-w-4xl font-heading">
           Closing the Gap Between{" "}
           <span className="text-accent-warm">Models</span> and{" "}
           <span className="text-accent-blue">Experience</span>

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-import { useRef, type ReactNode } from "react";
+import { m, useInView } from "motion/react";
+import { type ReactNode, useRef } from "react";
 
 interface FadeInViewProps {
   children: ReactNode;
@@ -20,7 +20,7 @@ export function FadeInView({
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={className}
       initial={{ opacity: 0, y }}
@@ -32,6 +32,6 @@ export function FadeInView({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

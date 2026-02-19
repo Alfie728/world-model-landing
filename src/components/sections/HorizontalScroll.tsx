@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { m, useScroll, useTransform } from "motion/react";
 import { Children, type ReactNode, useCallback, useRef } from "react";
 import { useMediaQuery } from "~/lib/hooks/useMediaQuery";
 
@@ -50,16 +50,13 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
   }
 
   // Pre-compute each group's slide range
-  let startIdx = 0;
-  const groupRanges = slideGroups.map((group) => {
-    const range = {
-      label: group.label,
-      start: startIdx,
-      end: startIdx + group.count - 1,
-    };
-    startIdx += group.count;
-    return range;
-  });
+  const groupRanges = slideGroups.reduce<
+    Array<{ label: string; start: number; end: number }>
+  >((acc, group) => {
+    const start = acc.length > 0 ? acc[acc.length - 1].end + 1 : 0;
+    acc.push({ label: group.label, start, end: start + group.count - 1 });
+    return acc;
+  }, []);
 
   return (
     <div
@@ -70,7 +67,7 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
       {/* Sticky viewport — matches reference .sticky-layer */}
       <div className="sticky top-0 left-0 h-screen w-full overflow-hidden">
         {/* Slides header — Offground-style navigation dots */}
-        <div className="relative z-10 flex w-full justify-between px-6 md:px-12 pt-8">
+        <div className="relative z-10 flex w-full justify-between px-6 pt-8 md:px-12">
           {groupRanges.map((group) => (
             <SlideHeaderItem
               key={group.label}
@@ -90,7 +87,7 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
 
         {/* Scroll progress — scoped to horizontal scroll container */}
         <div className="relative z-10 mx-6 mt-4 h-px bg-white/10 md:mx-12">
-          <motion.div
+          <m.div
             className="h-full origin-left"
             style={{
               scaleX: scrollYProgress,
@@ -101,14 +98,14 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
         </div>
 
         {/* Slides wrapper — absolute fill, matches .slides-wrapper */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 h-full w-full">
           {/* Slides container — flex row, translated, matches .slides-container */}
-          <motion.div
+          <m.div
             style={{ x }}
-            className="flex flex-nowrap h-full will-change-transform"
+            className="flex h-full flex-nowrap will-change-transform"
           >
             {children}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </div>
@@ -141,22 +138,22 @@ function SlideHeaderItem({
   });
 
   return (
-    <motion.button
+    <m.button
       type="button"
       onClick={onNavigate}
       className="flex cursor-pointer items-center gap-4"
       style={{ opacity }}
     >
-      <motion.svg
+      <m.svg
         width="20"
         height="20"
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <motion.circle cx="10" cy="10" r="10" style={{ fill: dotColor }} />
-      </motion.svg>
+        <m.circle cx="10" cy="10" r="10" style={{ fill: dotColor }} />
+      </m.svg>
       <h4 className="font-heading text-text-primary">{label}</h4>
-    </motion.button>
+    </m.button>
   );
 }

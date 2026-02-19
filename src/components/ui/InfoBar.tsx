@@ -23,16 +23,16 @@ export function InfoBar() {
   }, []);
 
   return (
-    <div className="flex items-center justify-between px-6 md:px-12 py-4 w-full border-t border-border-subtle bg-surface-base/95">
+    <div className="flex w-full items-center justify-between border-border-subtle border-t bg-surface-base/95 px-6 py-4 md:px-12">
       <h6
-        className="text-text-muted tracking-widest uppercase"
+        className="text-text-muted uppercase tracking-widest"
         style={{ fontSize: "13px", fontWeight: 400, letterSpacing: "0.08em" }}
       >
         Arcterra Labs
       </h6>
 
       <h6
-        className="text-text-muted hidden md:block"
+        className="hidden text-text-muted md:block"
         style={{ fontSize: "13px", fontWeight: 300 }}
       >
         Real-World AI Research
@@ -43,14 +43,14 @@ export function InfoBar() {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-blue opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-blue" />
         </span>
-        <span className="font-mono text-xs text-text-muted tracking-wider">
+        <span className="font-mono text-text-muted text-xs tracking-wider">
           {time || "--:--"} PT
         </span>
       </div>
 
       <a
         href="#contact"
-        className="font-heading text-text-muted hover:text-text-primary transition-colors cursor-pointer border border-border-subtle hover:border-text-muted rounded-full px-5 py-1.5"
+        className="cursor-pointer rounded-full border border-border-subtle px-5 py-1.5 font-heading text-text-muted transition-colors hover:border-text-muted hover:text-text-primary"
         style={{ fontSize: "13px", fontWeight: 400 }}
       >
         Contact

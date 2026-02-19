@@ -1,13 +1,12 @@
 export function Footer() {
   return (
-    <footer className="border-t border-border-subtle py-12 px-8 md:px-16">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="font-heading text-sm font-semibold tracking-wide text-text-muted uppercase">
+    <footer className="border-border-subtle border-t px-8 py-12 md:px-16">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+        <div className="font-heading font-semibold text-sm text-text-muted uppercase tracking-wide">
           Arcterra
         </div>
-        <p className="font-mono text-xs text-text-muted tracking-wide">
-          &copy; {new Date().getFullYear()} Arcterra Labs. All rights
-          reserved.
+        <p className="font-mono text-text-muted text-xs tracking-wide">
+          &copy; {new Date().getFullYear()} Arcterra Labs. All rights reserved.
         </p>
       </div>
     </footer>

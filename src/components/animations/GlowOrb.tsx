@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 interface GlowOrbProps {
   color: "blue" | "warm" | "sky";
@@ -16,9 +16,9 @@ const colorMap = {
 
 export function GlowOrb({ color, size = 400, className = "" }: GlowOrbProps) {
   return (
-    <motion.div
+    <m.div
       className={`absolute rounded-full ${colorMap[color]} pointer-events-none blur-2xl ${className}`}
-      style={{ width: size, height: size, willChange: "transform, opacity" }}
+      style={{ width: size, height: size }}
       animate={{
         scale: [1, 1.12, 0.92, 1.06, 1],
         opacity: [0.6, 1, 0, 0, 0.6],

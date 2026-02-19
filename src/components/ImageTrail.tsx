@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import { type JSX, useEffect, useRef } from "react";
 
+const EMPTY_ITEMS: string[] = [];
+
 function lerp(a: number, b: number, n: number): number {
   return (1 - n) * a + n * b;
 }
@@ -97,7 +99,9 @@ class ImageTrailVariant1 {
       this.mousePos = getLocalPointerPos(ev, rect);
     };
     container.addEventListener("mousemove", handlePointerMove);
-    container.addEventListener("touchmove", handlePointerMove);
+    container.addEventListener("touchmove", handlePointerMove, {
+      passive: true,
+    });
 
     const initRender = (ev: MouseEvent | TouchEvent) => {
       const rect = this.container.getBoundingClientRect();
@@ -108,7 +112,9 @@ class ImageTrailVariant1 {
       container.removeEventListener("touchmove", initRender as EventListener);
     };
     container.addEventListener("mousemove", initRender as EventListener);
-    container.addEventListener("touchmove", initRender as EventListener);
+    container.addEventListener("touchmove", initRender as EventListener, {
+      passive: true,
+    });
   }
 
   private render() {
@@ -215,7 +221,9 @@ class ImageTrailVariant2 {
       this.mousePos = getLocalPointerPos(ev, rect);
     };
     container.addEventListener("mousemove", handlePointerMove);
-    container.addEventListener("touchmove", handlePointerMove);
+    container.addEventListener("touchmove", handlePointerMove, {
+      passive: true,
+    });
 
     const initRender = (ev: MouseEvent | TouchEvent) => {
       const rect = container.getBoundingClientRect();
@@ -226,7 +234,9 @@ class ImageTrailVariant2 {
       container.removeEventListener("touchmove", initRender as EventListener);
     };
     container.addEventListener("mousemove", initRender as EventListener);
-    container.addEventListener("touchmove", initRender as EventListener);
+    container.addEventListener("touchmove", initRender as EventListener, {
+      passive: true,
+    });
   }
 
   private render() {
@@ -345,7 +355,9 @@ class ImageTrailVariant3 {
       this.mousePos = getLocalPointerPos(ev, rect);
     };
     container.addEventListener("mousemove", handlePointerMove);
-    container.addEventListener("touchmove", handlePointerMove);
+    container.addEventListener("touchmove", handlePointerMove, {
+      passive: true,
+    });
 
     const initRender = (ev: MouseEvent | TouchEvent) => {
       const rect = container.getBoundingClientRect();
@@ -356,7 +368,9 @@ class ImageTrailVariant3 {
       container.removeEventListener("touchmove", initRender as EventListener);
     };
     container.addEventListener("mousemove", initRender as EventListener);
-    container.addEventListener("touchmove", initRender as EventListener);
+    container.addEventListener("touchmove", initRender as EventListener, {
+      passive: true,
+    });
   }
 
   private render() {
@@ -478,7 +492,9 @@ class ImageTrailVariant4 {
       this.mousePos = getLocalPointerPos(ev, rect);
     };
     container.addEventListener("mousemove", handlePointerMove);
-    container.addEventListener("touchmove", handlePointerMove);
+    container.addEventListener("touchmove", handlePointerMove, {
+      passive: true,
+    });
 
     const initRender = (ev: MouseEvent | TouchEvent) => {
       const rect = container.getBoundingClientRect();
@@ -489,7 +505,9 @@ class ImageTrailVariant4 {
       container.removeEventListener("touchmove", initRender as EventListener);
     };
     container.addEventListener("mousemove", initRender as EventListener);
-    container.addEventListener("touchmove", initRender as EventListener);
+    container.addEventListener("touchmove", initRender as EventListener, {
+      passive: true,
+    });
   }
 
   private render() {
@@ -633,7 +651,9 @@ class ImageTrailVariant5 {
       this.mousePos = getLocalPointerPos(ev, rect);
     };
     container.addEventListener("mousemove", handlePointerMove);
-    container.addEventListener("touchmove", handlePointerMove);
+    container.addEventListener("touchmove", handlePointerMove, {
+      passive: true,
+    });
 
     const initRender = (ev: MouseEvent | TouchEvent) => {
       const rect = container.getBoundingClientRect();
@@ -644,7 +664,9 @@ class ImageTrailVariant5 {
       container.removeEventListener("touchmove", initRender as EventListener);
     };
     container.addEventListener("mousemove", initRender as EventListener);
-    container.addEventListener("touchmove", initRender as EventListener);
+    container.addEventListener("touchmove", initRender as EventListener, {
+      passive: true,
+    });
   }
 
   private render() {
@@ -776,7 +798,9 @@ class ImageTrailVariant6 {
       this.mousePos = getLocalPointerPos(ev, rect);
     };
     container.addEventListener("mousemove", handlePointerMove);
-    container.addEventListener("touchmove", handlePointerMove);
+    container.addEventListener("touchmove", handlePointerMove, {
+      passive: true,
+    });
 
     const initRender = (ev: MouseEvent | TouchEvent) => {
       const rect = container.getBoundingClientRect();
@@ -787,7 +811,9 @@ class ImageTrailVariant6 {
       container.removeEventListener("touchmove", initRender as EventListener);
     };
     container.addEventListener("mousemove", initRender as EventListener);
-    container.addEventListener("touchmove", initRender as EventListener);
+    container.addEventListener("touchmove", initRender as EventListener, {
+      passive: true,
+    });
   }
 
   private render() {
@@ -957,7 +983,9 @@ class ImageTrailVariant7 {
       this.resetIdleTimer();
     };
     container.addEventListener("mousemove", handlePointerMove);
-    container.addEventListener("touchmove", handlePointerMove);
+    container.addEventListener("touchmove", handlePointerMove, {
+      passive: true,
+    });
 
     const initRender = (ev: MouseEvent | TouchEvent) => {
       const rect = container.getBoundingClientRect();
@@ -968,7 +996,9 @@ class ImageTrailVariant7 {
       container.removeEventListener("touchmove", initRender as EventListener);
     };
     container.addEventListener("mousemove", initRender as EventListener);
-    container.addEventListener("touchmove", initRender as EventListener);
+    container.addEventListener("touchmove", initRender as EventListener, {
+      passive: true,
+    });
   }
 
   private resetIdleTimer() {
@@ -1115,7 +1145,9 @@ class ImageTrailVariant8 {
       this.mousePos = getLocalPointerPos(ev, rect);
     };
     container.addEventListener("mousemove", handlePointerMove);
-    container.addEventListener("touchmove", handlePointerMove);
+    container.addEventListener("touchmove", handlePointerMove, {
+      passive: true,
+    });
 
     const initRender = (ev: MouseEvent | TouchEvent) => {
       const rect = container.getBoundingClientRect();
@@ -1126,7 +1158,9 @@ class ImageTrailVariant8 {
       container.removeEventListener("touchmove", initRender as EventListener);
     };
     container.addEventListener("mousemove", initRender as EventListener);
-    container.addEventListener("touchmove", initRender as EventListener);
+    container.addEventListener("touchmove", initRender as EventListener, {
+      passive: true,
+    });
   }
 
   private render() {
@@ -1251,7 +1285,7 @@ interface ImageTrailProps {
 }
 
 export default function ImageTrail({
-  items = [],
+  items = EMPTY_ITEMS,
   variant = 1,
 }: ImageTrailProps): JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -1271,7 +1305,7 @@ export default function ImageTrail({
       {items.map((url, i) => (
         <div
           className="content__img absolute top-0 left-0 aspect-[1.1] w-[190px] overflow-hidden rounded-[15px] opacity-0 [will-change:transform,filter]"
-          key={i}
+          key={url}
         >
           <div
             className="content__img-inner absolute top-[-10px] left-[-10px] h-[calc(100%+20px)] w-[calc(100%+20px)] bg-center bg-cover"

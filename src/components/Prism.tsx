@@ -1,3 +1,5 @@
+"use client";
+
 import { Mesh, Program, Renderer, Triangle } from "ogl";
 import type React from "react";
 import { useEffect, useRef } from "react";
@@ -486,7 +488,7 @@ const Prism: React.FC<PrismProps> = ({
     suspendWhenOffscreen,
   ]);
 
-  return <div className="w-full h-full relative" ref={containerRef} />;
+  return <div className="relative h-full w-full" ref={containerRef} />;
 };
 
 export default Prism;

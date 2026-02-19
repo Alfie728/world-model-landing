@@ -1,9 +1,9 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
 import type { LenisRef } from "lenis/react";
+import { ReactLenis } from "lenis/react";
 import { cancelFrame, frame } from "motion";
-import { useEffect, useRef, type ReactNode } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const lenisRef = useRef<LenisRef>(null);

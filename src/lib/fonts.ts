@@ -1,8 +1,8 @@
 import {
-  Syne,
+  Instrument_Serif,
   Inter,
   JetBrains_Mono,
-  Instrument_Serif,
+  Syne,
 } from "next/font/google";
 
 export const syne = Syne({
