@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { Children, type ReactNode, useRef } from "react";
+import { Children, type ReactNode, useCallback, useRef } from "react";
 import { useMediaQuery } from "~/lib/hooks/useMediaQuery";
 
 interface HorizontalScrollProps {
@@ -78,8 +78,26 @@ export function HorizontalScroll({ children }: HorizontalScrollProps) {
               slideStart={group.start}
               slideEnd={group.end}
               activeIndex={activeIndex}
+              onNavigate={() => {
+                const el = containerRef.current;
+                if (!el) return;
+                const target = el.offsetTop + group.start * window.innerHeight;
+                window.scrollTo({ top: target, behavior: "smooth" });
+              }}
             />
           ))}
+        </div>
+
+        {/* Scroll progress — scoped to horizontal scroll container */}
+        <div className="relative z-10 mx-6 mt-4 h-px bg-white/10 md:mx-12">
+          <motion.div
+            className="h-full origin-left"
+            style={{
+              scaleX: scrollYProgress,
+              background:
+                "linear-gradient(to right, var(--color-accent-blue), var(--color-accent-sky))",
+            }}
+          />
         </div>
 
         {/* Slides wrapper — absolute fill, matches .slides-wrapper */}
@@ -102,11 +120,13 @@ function SlideHeaderItem({
   slideStart,
   slideEnd,
   activeIndex,
+  onNavigate,
 }: {
   label: string;
   slideStart: number;
   slideEnd: number;
   activeIndex: ReturnType<typeof useTransform<unknown, number>>;
+  onNavigate: () => void;
 }) {
   const opacity = useTransform(activeIndex, (latest) => {
     const rounded = Math.round(latest as number);
@@ -121,7 +141,12 @@ function SlideHeaderItem({
   });
 
   return (
-    <motion.div className="flex items-center gap-4" style={{ opacity }}>
+    <motion.button
+      type="button"
+      onClick={onNavigate}
+      className="flex cursor-pointer items-center gap-4"
+      style={{ opacity }}
+    >
       <motion.svg
         width="20"
         height="20"
@@ -131,8 +156,7 @@ function SlideHeaderItem({
       >
         <motion.circle cx="10" cy="10" r="10" style={{ fill: dotColor }} />
       </motion.svg>
-      {/* h4: 22px/30px/300 from Offground CSS */}
       <h4 className="font-heading text-text-primary">{label}</h4>
-    </motion.div>
+    </motion.button>
   );
 }

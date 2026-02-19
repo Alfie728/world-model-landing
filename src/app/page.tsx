@@ -16,13 +16,10 @@ import { ResearchLab } from "~/components/sections/ResearchLab";
 import { WhyThisMatters } from "~/components/sections/WhyThisMatters";
 import { InfoBar } from "~/components/ui/InfoBar";
 import { Navbar } from "~/components/ui/Navbar";
-import { ScrollProgress } from "~/components/ui/ScrollProgress";
-
 export default function Home() {
   return (
     <>
       <Navbar />
-      <ScrollProgress />
       <main>
         <div className="absolute inset-0">
           <Prism

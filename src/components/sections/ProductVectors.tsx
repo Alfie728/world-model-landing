@@ -1,27 +1,33 @@
 "use client";
 
+import { FadeInView } from "~/components/animations/FadeInView";
 import { SVGMaskReveal } from "~/components/animations/SVGMaskReveal";
 import { AccentCard } from "~/components/ui/AccentCard";
 import { content } from "~/lib/content";
 
 export function ProductVectors() {
   return (
-    <div className="relative flex h-full w-[100vw] min-w-[100vw] flex-shrink-0 flex-col max-md:px-6 max-md:py-24">
+    <div className="relative flex h-full w-[100vw] min-w-[100vw] flex-shrink-0 items-center overflow-hidden max-md:relative max-md:min-h-screen max-md:w-full max-md:px-6 max-md:py-24">
       {/* Heading — top left */}
-      <div className="relative z-[2] 3xl:mt-[18vh] 4xl:mt-[20vh] mt-[16vh] 3xl:ml-[8vw] 4xl:ml-[10vw] ml-[8vw] max-md:mt-0 max-md:ml-0 max-md:max-w-none 2xl:ml-[10vw]">
-        <SVGMaskReveal className="mt-4">
-          <h1 className="text-[clamp(44px,5.5vw,96px)] leading-[0.95] tracking-[-0.03em]">
-            Our Products
-          </h1>
+      <div className="pointer-events-none absolute 3xl:top-[18vh] 4xl:top-[20vh] top-[16vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] max-md:pointer-events-auto max-md:static max-md:max-w-none 2xl:left-[10vw]">
+        <SVGMaskReveal>
+          <h1>Our Products</h1>
         </SVGMaskReveal>
-        <div className="z-[2] 3xl:mt-12 4xl:mt-18 mt-6 flex w-full flex-col items-stretch gap-5 md:flex-row">
-          {content.productVectors.map((vector, i) => (
-            <AccentCard key={vector.title} vector={vector} index={i} />
-          ))}
-        </div>
+        <FadeInView delay={0.2} className="mt-4">
+          <h6 className="font-mono text-text-muted uppercase tracking-widest">
+            Three vectors of development
+          </h6>
+        </FadeInView>
       </div>
 
-      {/* Cards */}
+      {/* Staggered card row — bounded top & bottom to fit viewport */}
+      <div className="absolute top-[32vh] 3xl:right-[8vw] 4xl:right-[10vw] right-[8vw] bottom-[4vh] 3xl:left-[8vw] 4xl:left-[10vw] left-[8vw] z-[2] flex flex-col items-stretch gap-5 max-md:static max-md:mt-8 md:flex-row 2xl:right-[10vw] 2xl:left-[10vw]">
+        {content.productVectors.map((vector, i) => (
+          <div key={vector.title} className="min-w-0 flex-1 md:h-full">
+            <AccentCard vector={vector} index={i} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

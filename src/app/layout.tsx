@@ -16,15 +16,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <script
-          crossOrigin="anonymous"
-          src="//unpkg.com/react-scan/dist/auto.global.js"
-        />
-        {/* rest of your scripts go under */}
-      </head>
       <body
-        className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} antialiased bg-surface-base text-text-primary`}
+        className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} bg-surface-base text-text-primary antialiased`}
       >
         <SmoothScroll>{children}</SmoothScroll>
       </body>
