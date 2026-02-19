@@ -1,0 +1,103 @@
+/* Uppy Dashboard overrides to match Arcterra design system */
+
+.uppy-Dashboard--modal .uppy-Dashboard-overlay {
+  background: rgba(4, 8, 15, 0.85);
+}
+
+.uppy-Dashboard-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: var(--color-surface-raised) !important;
+  border-color: var(--color-border-subtle) !important;
+  border-radius: var(--radius) !important;
+  font-family: var(--font-body) !important;
+}
+
+/* Drop area */
+.uppy-Dashboard-AddFiles {
+  border-color: var(--color-border-subtle) !important;
+}
+
+.uppy-Dashboard-AddFiles-title {
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-body) !important;
+}
+
+.uppy-Dashboard-browse {
+  color: var(--color-accent-blue) !important;
+}
+
+.uppy-Dashboard-note {
+  color: var(--color-text-muted) !important;
+  font-family: var(--font-body) !important;
+}
+
+/* File list */
+.uppy-Dashboard-files-list {
+  background-color: var(--color-surface-raised) !important;
+}
+
+.uppy-Dashboard-Item {
+  border-color: var(--color-border-subtle) !important;
+}
+
+.uppy-Dashboard-Item-name {
+  color: var(--color-text-primary) !important;
+}
+
+.uppy-Dashboard-Item-statusSize {
+  color: var(--color-text-muted) !important;
+}
+
+/* Progress bar */
+.uppy-StatusBar {
+  background-color: var(--color-surface-overlay) !important;
+  border-top-color: var(--color-border-subtle) !important;
+}
+
+.uppy-StatusBar-progress {
+  background-color: var(--color-accent-blue) !important;
+}
+
+.uppy-StatusBar-content {
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-body) !important;
+}
+
+.uppy-StatusBar-actionBtn--upload {
+  background-color: var(--color-accent-blue) !important;
+  color: var(--color-surface-base) !important;
+  font-family: var(--font-body) !important;
+  border-radius: var(--radius) !important;
+}
+
+.uppy-StatusBar-actionBtn--upload:hover {
+  background-color: #3d93ef !important;
+}
+
+/* Buttons */
+.uppy-DashboardContent-addMore {
+  color: var(--color-accent-blue) !important;
+}
+
+.uppy-Dashboard-Item-action--remove {
+  color: var(--color-text-muted) !important;
+}
+
+.uppy-Dashboard-Item-action--remove:hover {
+  color: var(--color-text-primary) !important;
+}
+
+/* Drag state */
+.uppy-Dashboard--isDraggingOver .uppy-Dashboard-AddFiles {
+  border-color: var(--color-accent-blue) !important;
+}
+
+.uppy-Dashboard--isDraggingOver .uppy-Dashboard-inner {
+  box-shadow: 0 0 60px -15px rgba(77, 163, 255, 0.3) !important;
+}
+
+/* Informer (error/info messages) */
+.uppy-Informer {
+  font-family: var(--font-body) !important;
+}
